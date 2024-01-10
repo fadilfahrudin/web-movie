@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+$color-dark-100: #222831;
+$color-dark-50: #2c394b;
+$color-dark-25: #334756;
+$color-light: #dddddd;
+$color-light-50: #929090;
+$color-red: #af0a0a;
+
+html,
+body {
+    max-width: 100vw;
+}
+
+body {
+    color: $color-light;
+    background: rgb(34, 40, 49);
+    background: linear-gradient(261deg, rgba(34, 40, 49, 1) 40%, rgba(44, 57, 75, 1) 79%);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        color-scheme: dark;
+    }
+}

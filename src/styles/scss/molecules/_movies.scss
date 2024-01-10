@@ -1,0 +1,102 @@
+#movies {
+    min-height: 100vh;
+    position: relative;
+    .filter-wrapper {
+        z-index: 99;
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        width: calc(100% - 2rem);
+
+        .btn-filter {
+            background-color: $color-dark-100;
+            border: none;
+            cursor: pointer;
+            width: 200px;
+            height: 40px;
+            padding: 0 10px;
+            transition: all 0.5s ease-in-out;
+            box-shadow: 0px 10px 15px -3px rgba(24, 23, 23, 0.623);
+
+            &.active {
+                background-color: #fff;
+                color: $color-dark-100;
+                border: none;
+            }
+
+            &:hover {
+                background-color: #fff;
+                color: $color-dark-100;
+            }
+        }
+    }
+    .movie-listing {
+        margin-top: 2rem;
+        padding: 0 10px;
+
+        display: grid;
+        grid-template-columns: calc((100% / 3) - 10px) calc((100% / 3) - 10px) calc((100% / 3) - 10px);
+        grid-template-rows: auto auto auto;
+        column-gap: 10px;
+        row-gap: 15px;
+        justify-content: center;
+        .movie-item {
+            width: auto;
+            height: auto;
+            aspect-ratio: 2/3;
+            overflow: hidden;
+            img {
+                object-fit: cover;
+                object-position: center center;
+            }
+        }
+    }
+    .btn-to-top {
+        display: none;
+        cursor: pointer;
+        position: sticky;
+        left: 94vw;
+        bottom: 2.5rem;
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        background-color: $color-light;
+        border-radius: 10px;
+
+        &:hover {
+            background-color: #fff;
+            border: none;
+        }
+        img {
+            aspect-ratio: 1/1;
+        }
+    }
+
+    @include media.ipad {
+        .movie-listing {
+            grid-template-columns: calc((100% / 4) - 10px) calc((100% / 4) - 10px) calc((100% / 4) - 10px) calc(
+                    (100% / 4) - 10px
+                );
+            grid-template-rows: auto auto auto auto;
+        }
+    }
+
+    @include media.desktop {
+        .filter-wrapper {
+            margin-top: 4rem;
+            .btn-filter {
+                padding: 1vw 10px;
+            }
+        }
+        .movie-listing {
+            grid-template-columns:
+                calc((100% / 5) - 10px) calc((100% / 5) - 10px) calc((100% / 5) - 10px) calc((100% / 5) - 10px)
+                calc((100% / 5) - 10px);
+            grid-template-rows: auto auto auto auto auto;
+        }
+        .btn-to-top {
+            display: block;
+        }
+    }
+}

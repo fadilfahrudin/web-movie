@@ -1,0 +1,177 @@
+.mobile-navigation {
+    position: sticky;
+    width: 90%;
+    height: auto;
+    top: 88vh;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: auto;
+    align-items: center;
+    ul {
+        backdrop-filter: blur(8px);
+        background: linear-gradient(-180deg, rgb(221, 221, 221) 20%, rgb(182 189 199 / 95%) 79%);
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 6px 0.65rem;
+        border-radius: 12px;
+
+        li {
+            position: relative;
+            a {
+                position: relative;
+                transition: 0.2s ease-in-out;
+                color: $color-dark-25;
+                background: $color-dark-25;
+                -webkit-background-clip: text;
+                background-clip: text;
+
+                &.active {
+                    font-weight: 700;
+                    background: $color-dark-25;
+                    color: $color-dark-100;
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                }
+
+                &:hover {
+                    font-weight: 700;
+                    background: $color-dark-25;
+                    color: #fff;
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                }
+            }
+
+            .search {
+                display: flex;
+                gap: 0 20px;
+                align-items: center;
+                transition: 0.5s ease-in-out;
+                width: 20px;
+                overflow: hidden;
+
+                .ic-search {
+                    display: inline-block;
+                    content: url("../../assets/icon/search.png");
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+    .btn-to-top {
+        display: block;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        background-color: $color-light;
+        border-radius: 10px;
+
+        &:hover {
+            background-color: #fff;
+            border: none;
+        }
+        img {
+            aspect-ratio: 1/1;
+        }
+    }
+    @include media.ipad {
+        width: 50%;
+        top: 90vh;
+    }
+    @include media.desktop {
+        display: none;
+    }
+}
+.desktop-navigation {
+    display: none;
+    @include media.desktop {
+        position: sticky;
+        z-index: 999;
+        top: 1rem;
+        width: 100%;
+        height: auto;
+        margin-top: 2rem;
+        padding: 0 4rem;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .brand {
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            color: #d3d3d3;
+            font-weight: 700;
+        }
+        .about {
+            font-size: 1.25rem;
+            color: #d3d3d3;
+            font-weight: 700;
+        }
+        ul {
+            backdrop-filter: blur(8px);
+            background: linear-gradient(-180deg, rgb(221, 221, 221) 20%, rgb(182 189 199 / 95%) 79%);
+            list-style: none;
+            display: flex;
+            gap: 12px;
+            padding: 12px 2rem;
+            border-radius: 32px;
+
+            li {
+                position: relative;
+                a {
+                    position: relative;
+                    transition: 0.2s ease-in-out;
+                    color: $color-dark-25;
+                    background: $color-dark-25;
+                    -webkit-background-clip: text;
+                    background-clip: text;
+
+                    &.active {
+                        font-weight: 700;
+                        background: $color-dark-25;
+                        color: $color-dark-100;
+                        -webkit-background-clip: text;
+                        background-clip: text;
+                    }
+
+                    &:hover {
+                        font-weight: 700;
+                        background: $color-dark-25;
+                        color: $color-dark-25;
+                        -webkit-background-clip: text;
+                        background-clip: text;
+                    }
+                }
+
+                .search {
+                    display: flex;
+                    gap: 0 20px;
+                    align-items: center;
+                    transition: 0.5s ease-in-out;
+                    width: 20px;
+                    overflow: hidden;
+
+                    .ic-search {
+                        display: inline-block;
+                        content: url("../../assets/icon/search.png");
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    &:hover {
+                        width: 90px;
+                        gap: 0 10px;
+                    }
+                }
+            }
+        }
+    }
+}

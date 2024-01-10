@@ -1,0 +1,17 @@
+@use "media";
+@import "global";
+
+// Molecules
+@import "molecules/movies";
+@import "molecules/detail-page";
+@import "molecules/navbar";
+@import "molecules/footer";
+@import "molecules/header";
+@import "molecules/movie-list";
+@import "molecules/featuredComponent";
+
+// atomic
+@import "atomic/spline";
+@import "atomic/movie-card";
+@import "atomic/card-movie";
+@import "atomic/skeleton";

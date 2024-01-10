@@ -1,0 +1,122 @@
+.listMovie {
+    position: relative;
+    width: 100%;
+    .listTitle {
+        cursor: default;
+        position: relative;
+        width: max-content;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: $color-light;
+        line-height: 150%;
+        padding: 0 20px;
+        transition: color 0.5s 0.2s ease-in-out;
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 6px;
+            height: 100%;
+            border-radius: 2px;
+            background: #fff;
+            background: linear-gradient(281deg, #fff 40%, #dddddd 100%);
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0%;
+            height: 90%;
+            border-radius: 2px;
+            transition: width 0.5s ease-in-out;
+            background: #fff;
+            background: linear-gradient(281deg, #fff 40%, #dddddd 100%);
+        }
+
+        &:hover::before {
+            width: 100%;
+        }
+
+        &:hover {
+            color: $color-dark-100;
+        }
+    }
+    .movie-listing {
+        margin-top: 2rem;
+        // padding: 0 10px;
+
+        display: grid;
+        grid-template-columns: calc((100% / 3) - 18px) calc((100% / 3) - 18px) calc((100% / 3) - 18px);
+        grid-template-rows: auto auto auto;
+        column-gap: 18px;
+        row-gap: 15px;
+        justify-content: center;
+    }
+    .btn-swipe {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        z-index: 99;
+        background: rgb(34, 40, 49);
+        background: linear-gradient(261deg, rgba(34, 40, 49, 1) 40%, rgba(44, 57, 75, 1) 79%);
+        border: none;
+        border-radius: 50%;
+        padding: 8px;
+        &.ic-left {
+            left: -2%;
+            right: unset;
+            &.hidden {
+                display: none;
+            }
+        }
+        &.ic-right {
+            left: unset;
+            right: -2%;
+
+            &.hidden {
+                display: none;
+            }
+        }
+    }
+    .featured {
+        padding: 10px 0;
+        height: 400px;
+        width: 100%;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        overflow-x: hidden;
+        overflow-y: visible;
+
+        &.landscape {
+            height: 200px;
+        }
+    }
+}
+
+@include media.ipad {
+    .listMovie {
+        .movie-listing {
+            grid-template-columns: calc((100% / 4) - 10px) calc((100% / 4) - 10px) calc((100% / 4) - 10px) calc(
+                    (100% / 4) - 10px
+                );
+            grid-template-rows: auto auto auto auto;
+        }
+    }
+}
+
+@include media.desktop {
+    .listMovie {
+        .movie-listing {
+            grid-template-columns:
+                calc((100% / 5) - 18px) calc((100% / 5) - 18px) calc((100% / 5) - 18px) calc((100% / 5) - 18px)
+                calc((100% / 5) - 18px);
+            grid-template-rows: auto auto auto auto auto;
+        }
+    }
+}
