@@ -47,8 +47,6 @@
     }
     .movie-listing {
         margin-top: 2rem;
-        // padding: 0 10px;
-
         display: grid;
         grid-template-columns: calc((100% / 3) - 18px) calc((100% / 3) - 18px) calc((100% / 3) - 18px);
         grid-template-rows: auto auto auto;

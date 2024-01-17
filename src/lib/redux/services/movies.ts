@@ -9,8 +9,11 @@ export const moviesApi: any = createApi({
         baseUrl: baseUrl
     }),
     endpoints: (builder) => ({
-        getTrending: builder.query({
-            query: () => `trending/movie/day?api_key=${api_key}`
+        getUpcomming: builder.query({
+            query: (page) => `movie/upcoming?api_key=${api_key}&page=${page || 1}&language=en-US`
+        }),
+        getTopRated: builder.query({
+            query: (page) => `movie/top_rated?api_key=${api_key}&page=${page || 1}&language=en-US`
         }),
         getBySearch: builder.query({
             query: (keyword) => `search/movie?query=${keyword}&page=1&include_adult=false&language=en-US&year=2022&api_key=${api_key}`
@@ -25,7 +28,7 @@ export const moviesApi: any = createApi({
             query: (id) => `movie/${id}/videos?api_key=${api_key}`
         }),
         getPopular: builder.query({
-            query: () => `movie/popular?api_key=${api_key}&page=1&language=en-US`
+            query: (page) => `movie/popular?api_key=${api_key}&page=${page || 1}&language=en-US`
         }),
         getById: builder.query({
             query: (id) => `movie/${id}?api_key=${api_key}`
@@ -34,9 +37,14 @@ export const moviesApi: any = createApi({
             query: (id) => `movie/${id}/credits?api_key=${api_key}`
         }),
         getNowPlaying: builder.query({
-            query: () => `movie/now_playing?api_key=${api_key}&language=en-US&page=1`
+            query: (page) => `movie/now_playing?api_key=${api_key}&language=en-US&page=${page || 1}`
+        }),
+        getDiscover: builder.query({
+            query: ([page, year]) => `discover/movie?api_key=${api_key}&page=${page || 1}&include_adult=false&language=en-US&year=${year}`
         })
     })
 })
 
-export const { useGetNowPlayingQuery, useGetCreditQuery, useGetByIdQuery, useGetPopularQuery, useGetVideoQuery, useGetTrendingQuery, useGetBySearchQuery, useGetSimilerQuery, useGetCollectionQuery } = moviesApi
+export const {
+    useGetUpcommingQuery, useGetTopRatedQuery, useGetDicoverQuery, useGetNowPlayingQuery, useGetCreditQuery, useGetByIdQuery, useGetPopularQuery, useGetVideoQuery, useGetBySearchQuery, useGetSimilerQuery, useGetCollectionQuery
+} = moviesApi

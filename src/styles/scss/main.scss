@@ -4,6 +4,7 @@
 // Molecules
 @import "molecules/movies";
 @import "molecules/detail-page";
+@import "molecules/detail-series";
 @import "molecules/navbar";
 @import "molecules/footer";
 @import "molecules/header";
@@ -15,3 +16,5 @@
 @import "atomic/movie-card";
 @import "atomic/card-movie";
 @import "atomic/skeleton";
+@import "atomic/pagination";
+@import "atomic/load-page";

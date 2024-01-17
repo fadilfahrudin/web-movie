@@ -3,7 +3,7 @@
 import React, { useRef, useState } from 'react'
 import CardMovie, { MovieType } from "../atomic/CardMovie"
 
-import { useGetBySearchQuery, useGetCollectionQuery, useGetSimilerQuery, useGetNowPlayingQuery, useGetTrendingQuery } from "@/lib/redux/services/movies"
+import { useGetBySearchQuery, useGetCollectionQuery, useGetSimilerQuery, useGetNowPlayingQuery, useGetPopularQuery } from "@/lib/redux/services/movies"
 import { swipeLeft, swipeRight } from '@/assets/icon'
 
 
@@ -17,15 +17,15 @@ export type ListMovieProps = {
     imgOrientation: "landscape" | "portrait"
 }
 
+
 const ListMovie = ({ listType, listLimit, listPath, listTitle, movieId, collectionId, imgOrientation }: ListMovieProps) => {
     const [scroll, setScroll] = useState(0)
     const ref = useRef<HTMLDivElement>(null)
-    const { data: query, isSuccess: querySuccess } = useGetBySearchQuery("Spider Man")
-    const { data: collection, isSuccess: collectionSuccess } = useGetCollectionQuery(collectionId)
-    const { data: similar, isSuccess: similarSuccess } = useGetSimilerQuery(movieId)
-    const { data: nowplaying, isSuccess: playingSuccess } = useGetNowPlayingQuery()
-    const { data: trending, isSuccess: trendingSuccess } = useGetTrendingQuery()
-
+    const { data: query, isSuccess: querySuccess, isLoading: queryLoad } = useGetBySearchQuery("Spider Man")
+    const { data: collection, isSuccess: collectionSuccess, isLoading: collecLoad } = useGetCollectionQuery(collectionId)
+    const { data: similar, isSuccess: similarSuccess, isLoading: similarLoad } = useGetSimilerQuery(movieId)
+    const { data: nowplaying, isSuccess: playingSuccess, isLoading: nowPlayLoad } = useGetNowPlayingQuery()
+    const { data: trending, isSuccess: trendingSuccess, isLoading: trendingLoad } = useGetPopularQuery()
     const filterCollection = collectionSuccess && collection.parts.filter((item: MovieType) => item.id !== parseInt(String(movieId ?? "0")))
 
 
@@ -51,7 +51,7 @@ const ListMovie = ({ listType, listLimit, listPath, listTitle, movieId, collecti
             }
             <div className={`${listType == "movies" ? "movie-listing" : "featured"} ${imgOrientation == "landscape" ? "landscape" : ""}`} ref={ref}>
                 {listPath == "trending" && trendingSuccess && trending.results.slice(0, listLimit).map((item: MovieType, i: number) => (
-                    <CardMovie title={item.title} orientation={imgOrientation} id={item.id} index={i} key={item.id} poster_path={item.poster_path ?? ""} backdrop_path={item.backdrop_path ?? ""} />
+                    <CardMovie isLoading={trendingLoad} isSuccess={trendingSuccess} title={item.title} orientation={imgOrientation} id={item.id} index={i} key={item.id} poster_path={item.poster_path ?? ""} backdrop_path={item.backdrop_path ?? ""} />
                 ))}
 
                 {listPath == "query" && querySuccess && query.results.map((item: MovieType, i: number) => (

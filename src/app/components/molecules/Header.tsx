@@ -1,16 +1,16 @@
 "use client"
 /* eslint-disable @next/next/no-img-element */
 import { useGetVideoQuery, useGetPopularQuery, useGetByIdQuery } from "@/lib/redux/services/movies"
-import { MovieType } from './ListMovie'
 import { movieApi } from "@/config/api-config"
 import { useEffect, useState } from "react"
 import { favotites } from "@/assets/icon"
 import { useRouter } from "next/navigation"
+import { MovieType } from "../atomic/CardMovie"
 
 const Header = () => {
     const router = useRouter()
-    const { data: popular, isSuccess: popularSuccess } = useGetPopularQuery({})
-    const filter = popularSuccess && popular.results.filter((item: any) => item.popularity > 1000)
+    const { data: popular, isSuccess: popularSuccess } = useGetPopularQuery()
+    const filter = popularSuccess && popular.results.filter((item: any) => item.popularity > 900)
     const [Id, setId] = useState(Number)
 
     const { data: movieId, isSuccess: movieIdSuccess } = useGetByIdQuery(Id)

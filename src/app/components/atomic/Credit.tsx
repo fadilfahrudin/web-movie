@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 "use client"
 import { useGetCreditQuery } from "@/lib/redux/services/movies"
-import { spiderman } from "@/assets/img"
-import { MovieType } from "../ListMovie"
 import { movieApi } from "@/config/api-config"
+import { MovieType } from "./CardMovie"
 
 export type CastType = {
     id: number,

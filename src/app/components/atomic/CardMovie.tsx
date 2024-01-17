@@ -1,10 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 "use client"
-import { CSSProperties, useState, useRef } from "react"
+import { CSSProperties, useRef, useEffect } from "react"
 import { movieApi } from "@/config/api-config"
 import { useRouter } from 'next/navigation'
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useDispatch } from "react-redux";
+import { setLoading } from "@/lib/redux/slice/loadingSlice";
 
 export type MovieType = {
     id?: number,
@@ -13,10 +15,17 @@ export type MovieType = {
     backdrop_path?: string,
     index?: number,
     orientation?: "landscape" | "portrait",
-    isLoading?: boolean
+    isLoading?: boolean,
+    isSuccess?: string
 }
 
-const CardMovie = (props: MovieType) => {
+export interface SeriesType extends MovieType {
+    name?: string,
+    tv?: boolean
+}
+
+const CardMovie = (props: SeriesType) => {
+    const dispatch = useDispatch()
     const route = useRouter();
     const main = useRef<HTMLButtonElement | null>(null);
     const { thumb } = movieApi
@@ -36,8 +45,18 @@ const CardMovie = (props: MovieType) => {
         aspectRatio: props.orientation == "portrait" ? "2/3" : "16/9",
     }
 
+    const handleClick = () => {
+        if (props.tv) {
+            route.push(`/series/${props.id}`)
+        } else {
+            route.push(`/movie/${props.id}`)
+        }
+        dispatch(setLoading(true))
+
+    }
+
     return (
-        <button ref={main} type="button" className={`card-movie ${props.isLoading ? "loading" : ""}`} onClick={() => route.push(`/movie/${props.id}`)}>
+        <button ref={main} style={{ flexBasis: props.orientation == "portrait" ? "calc((100vw / 5) - 18px)" : "calc((100vw / 4) - 18px)" }} type="button" className={`card-movie ${props.isLoading ? "loading" : ""}`} onClick={handleClick}>
             <img src={props.orientation == "portrait" ? thumb(props.poster_path ?? "") : thumb(props.backdrop_path ?? "")} alt={props.title} className="card-item-movie" style={styles} width="100%" height="100%" />
             <p className="card-title">{props.title}</p>
         </button>
