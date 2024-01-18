@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client"
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import CardMovie, { MovieType } from "../atomic/CardMovie"
 
 import { useGetBySearchQuery, useGetCollectionQuery, useGetSimilerQuery, useGetNowPlayingQuery, useGetPopularQuery } from "@/lib/redux/services/movies"
@@ -15,19 +15,26 @@ export type ListMovieProps = {
     movieId?: number,
     collectionId?: number,
     imgOrientation: "landscape" | "portrait"
+    keyword?: string
 }
 
 
-const ListMovie = ({ listType, listLimit, listPath, listTitle, movieId, collectionId, imgOrientation }: ListMovieProps) => {
+const ListMovie = ({ listType, listLimit, listPath, listTitle, movieId, collectionId, imgOrientation, keyword }: ListMovieProps) => {
     const [scroll, setScroll] = useState(0)
     const ref = useRef<HTMLDivElement>(null)
-    const { data: query, isSuccess: querySuccess, isLoading: queryLoad } = useGetBySearchQuery("Spider Man")
+    const { data: query, isSuccess: querySuccess, isLoading: queryLoad } = useGetBySearchQuery(keyword)
     const { data: collection, isSuccess: collectionSuccess, isLoading: collecLoad } = useGetCollectionQuery(collectionId)
     const { data: similar, isSuccess: similarSuccess, isLoading: similarLoad } = useGetSimilerQuery(movieId)
     const { data: nowplaying, isSuccess: playingSuccess, isLoading: nowPlayLoad } = useGetNowPlayingQuery()
     const { data: trending, isSuccess: trendingSuccess, isLoading: trendingLoad } = useGetPopularQuery()
     const filterCollection = collectionSuccess && collection.parts.filter((item: MovieType) => item.id !== parseInt(String(movieId ?? "0")))
 
+    if (querySuccess) {
+        console.log(query)
+    }
+    useEffect(() => {
+        console.log(keyword)
+    }, [keyword])
 
     const swipe = (direction: string) => {
         if (ref.current) {
@@ -55,7 +62,7 @@ const ListMovie = ({ listType, listLimit, listPath, listTitle, movieId, collecti
                 ))}
 
                 {listPath == "query" && querySuccess && query.results.map((item: MovieType, i: number) => (
-                    <CardMovie title={item.title} orientation={imgOrientation} id={item.id} index={i} key={item.id} poster_path={item.poster_path ?? ""} backdrop_path={item.backdrop_path} />
+                    <CardMovie title={item.title} media_type={item.media_type} orientation={imgOrientation} id={item.id} index={i} key={item.id} poster_path={item.poster_path ?? ""} backdrop_path={item.backdrop_path} />
                 ))}
 
                 {listPath == "sequel" && collectionSuccess && filterCollection.map((item: MovieType, i: number) => (

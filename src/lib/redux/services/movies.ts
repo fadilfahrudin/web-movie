@@ -16,7 +16,7 @@ export const moviesApi: any = createApi({
             query: (page) => `movie/top_rated?api_key=${api_key}&page=${page || 1}&language=en-US`
         }),
         getBySearch: builder.query({
-            query: (keyword) => `search/movie?query=${keyword}&page=1&include_adult=false&language=en-US&year=2022&api_key=${api_key}`
+            query: (keyword) => `search/multi?query=${keyword}&page=1&include_adult=false&language=en-US&api_key=${api_key}`
         }),
         getSimiler: builder.query({
             query: (id) => `movie/${id}/recommendations?api_key=${api_key}&page=1&language=en-US`

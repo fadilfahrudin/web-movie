@@ -33,7 +33,7 @@ export default function Home() {
       {!isLoading && <main className={styles.main}>
         <Header />
         <ListMovie imgOrientation='portrait' listTitle='Trending' listType='movies' listLimit={10} listPath='trending' />
-        <ListMovie listTitle='Spider Man Verse' listPath='query' listType='featured' imgOrientation='portrait' />
+        <ListMovie listTitle='Spider Man Verse' listPath='query' listType='featured' imgOrientation='portrait' keyword='spider man' />
         <ListMovie listTitle='Avengers Collection' listPath='sequel' collectionId={86311} imgOrientation='landscape' listType='featured' />
       </main >
       }

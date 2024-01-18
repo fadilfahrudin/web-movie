@@ -44,7 +44,7 @@ export default function Series() {
 
                     <div className="movie-listing">
                         {series.map((item: SeriesType, i: number) => (
-                            <CardMovie tv={true} title={item.name} orientation="portrait" id={item.id} index={i} key={item.id} poster_path={item.poster_path ?? ""} backdrop_path={item.backdrop_path ?? ""} />
+                            <CardMovie media_type="tv" title={item.name} orientation="portrait" id={item.id} index={i} key={item.id} poster_path={item.poster_path ?? ""} backdrop_path={item.backdrop_path ?? ""} />
                         ))}
                     </div>
                     <Loading tv={true} />

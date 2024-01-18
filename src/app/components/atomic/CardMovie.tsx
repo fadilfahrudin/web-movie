@@ -17,11 +17,11 @@ export type MovieType = {
     orientation?: "landscape" | "portrait",
     isLoading?: boolean,
     isSuccess?: string
+    media_type?: "tv" | "movie"
 }
 
 export interface SeriesType extends MovieType {
     name?: string,
-    tv?: boolean
 }
 
 const CardMovie = (props: SeriesType) => {
@@ -49,7 +49,7 @@ const CardMovie = (props: SeriesType) => {
     }
 
     const handleClick = () => {
-        if (props.tv) {
+        if (props.media_type == "tv") {
             route.push(`/series/${props.id}`)
         } else {
             route.push(`/movie/${props.id}`)
