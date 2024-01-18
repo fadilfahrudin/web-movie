@@ -11,6 +11,7 @@ import { setLoading } from "@/lib/redux/slice/loadingSlice";
 export type MovieType = {
     id?: number,
     title?: string,
+    name?: string,
     poster_path?: string,
     backdrop_path?: string,
     index?: number,
@@ -20,11 +21,7 @@ export type MovieType = {
     media_type?: "tv" | "movie"
 }
 
-export interface SeriesType extends MovieType {
-    name?: string,
-}
-
-const CardMovie = (props: SeriesType) => {
+const CardMovie = (props: MovieType) => {
     const dispatch = useDispatch()
     const route = useRouter();
     const main = useRef<HTMLButtonElement | null>(null);
@@ -61,8 +58,8 @@ const CardMovie = (props: SeriesType) => {
 
     return (
         <button ref={main} style={cardStyles} type="button" className={`card-movie ${props.isLoading ? "loading" : ""}`} onClick={handleClick}>
-            <img src={props.orientation == "portrait" ? thumb(props.poster_path ?? "") : thumb(props.backdrop_path ?? "")} alt={props.title} className="card-item-movie" style={styles} width="100%" height="100%" />
-            <p className="card-title">{props.title}</p>
+            <img src={props.orientation == "portrait" ? thumb(props.poster_path ?? "") : thumb(props.backdrop_path ?? "")} alt={props.media_type == "tv" ? props.name : props.title} className="card-item-movie" style={styles} width="100%" height="100%" />
+            <p className="card-title">{props.media_type == "tv" ? props.name : props.title}</p>
         </button>
     )
 }

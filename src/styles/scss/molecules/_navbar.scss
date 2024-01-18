@@ -22,7 +22,8 @@
 
         li {
             position: relative;
-            button {
+            a {
+                text-decoration: none;
                 border: none;
                 position: relative;
                 transition: 0.2s ease-in-out;
@@ -127,14 +128,15 @@
 
             li {
                 position: relative;
-                button {
+                a {
+                    text-decoration: none;
                     display: inline-block;
                     cursor: pointer;
                     font-weight: 500;
                     border: none;
                     font-size: 14px;
                     position: relative;
-                    transition: all 0.5s linear;
+                    // transition: all 0.5s linear;
                     color: $color-dark-25;
                     background: $color-dark-25;
                     -webkit-background-clip: text;
@@ -149,7 +151,7 @@
                     }
 
                     &:hover {
-                        font-size: 16px;
+                        font-weight: 700;
                         background: $color-dark-100;
                         color: $color-dark-100;
                         -webkit-background-clip: text;

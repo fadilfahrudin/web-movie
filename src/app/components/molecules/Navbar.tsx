@@ -24,21 +24,21 @@ export const Navbar = () => {
             <nav className='desktop-navigation'>
                 <a className="brand" href='/'><img src={Logo.src} alt="Fadils Movie" width={35} height={35} /> MOVIES</a>
                 <ul>
-                    <li><button className={pathname === '/' ? 'active' : ''} onClick={() => handleClick('/')}>Home</button></li>
-                    <li><button className={pathname === '/movies' ? 'active' : ''} onClick={() => handleClick('/movies')}>Movies</button></li>
-                    <li><button className={pathname === '/series' ? 'active' : ''} onClick={() => handleClick('/series')}>Series</button></li>
-                    <li><button className='search' onClick={() => handleClick('/search')}><i className='ic-search' ></i>Search</button></li>
+                    <li><a role='button' className={pathname === '/' ? 'active' : ''} onClick={() => handleClick('/')}>Home</a></li>
+                    <li><a role='button' className={pathname === '/movies' ? 'active' : ''} onClick={() => handleClick('/movies')}>Movies</a></li>
+                    <li><a role='button' className={pathname === '/series' ? 'active' : ''} onClick={() => handleClick('/series')}>Series</a></li>
+                    <li><a role='button' className='search' onClick={() => handleClick('/search')}><i className='ic-search' ></i>Search</a></li>
                 </ul>
                 <a href='#about' className="about">ABOUT</a>
 
             </nav>
             <nav className="mobile-navigation">
                 <ul>
-                    <li><button className={pathname === '/' ? 'active' : ''}><img src={Logo.src} alt="Fadils Movie" width={35} height={35} /></button></li>
-                    <li><button className={pathname === '/movies' ? 'active' : ''}>Movies</button></li>
-                    <li><button className={pathname === '/series' ? 'active' : ''}>Series</button></li>
-                    <li><button className='about'>About</button></li>
-                    <li><button className='search'><i className='ic-search'></i></button></li>
+                    <li><a role='button' className={pathname === '/' ? 'active' : ''} onClick={() => handleClick('/')}><img src={Logo.src} alt="Fadils Movie" width={35} height={35} /></a></li>
+                    <li><a role='button' className={pathname === '/movies' ? 'active' : ''} onClick={() => handleClick('/movies')}>Movies</a></li>
+                    <li><a role='button' className={pathname === '/series' ? 'active' : ''} onClick={() => handleClick('/series')}>Series</a></li>
+                    <li><a role='button' className='about'>About</a></li>
+                    <li><a role='button' className='search' onClick={() => handleClick('/search')}><i className='ic-search'></i></a></li>
                 </ul>
                 <ButtonBackToTop />
             </nav>

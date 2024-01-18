@@ -7,6 +7,7 @@ import ListMovie from '@/app/components/molecules/ListMovie';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { setLoading } from '@/lib/redux/slice/loadingSlice';
+import ListSeries from './components/molecules/listSeries';
 export default function Home() {
   const { isLoading } = useSelector((state: any) => state.loading)
   const dispatch = useDispatch()
@@ -33,8 +34,9 @@ export default function Home() {
       {!isLoading && <main className={styles.main}>
         <Header />
         <ListMovie imgOrientation='portrait' listTitle='Trending' listType='movies' listLimit={10} listPath='trending' />
-        <ListMovie listTitle='Spider Man Verse' listPath='query' listType='featured' imgOrientation='portrait' keyword='spider man' />
+        <ListMovie listTitle='Spider Verse' listPath='query' listType='featured' imgOrientation='portrait' keyword='spider man' />
         <ListMovie listTitle='Avengers Collection' listPath='sequel' collectionId={86311} imgOrientation='landscape' listType='featured' />
+        <ListSeries listType='movies' imgOrientation='portrait' listTitle='Airing Today' listPath='airing_today' />
       </main >
       }
     </>

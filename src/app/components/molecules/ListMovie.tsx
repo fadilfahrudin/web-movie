@@ -15,7 +15,7 @@ export type ListMovieProps = {
     movieId?: number,
     collectionId?: number,
     imgOrientation: "landscape" | "portrait"
-    keyword?: string
+    keyword?: string,
 }
 
 
@@ -62,7 +62,7 @@ const ListMovie = ({ listType, listLimit, listPath, listTitle, movieId, collecti
                 ))}
 
                 {listPath == "query" && querySuccess && query.results.map((item: MovieType, i: number) => (
-                    <CardMovie title={item.title} media_type={item.media_type} orientation={imgOrientation} id={item.id} index={i} key={item.id} poster_path={item.poster_path ?? ""} backdrop_path={item.backdrop_path} />
+                    <CardMovie title={item.title} name={item.name} media_type={item.media_type} orientation={imgOrientation} id={item.id} index={i} key={item.id} poster_path={item.poster_path ?? ""} backdrop_path={item.backdrop_path} />
                 ))}
 
                 {listPath == "sequel" && collectionSuccess && filterCollection.map((item: MovieType, i: number) => (

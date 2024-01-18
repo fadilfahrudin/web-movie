@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import ButtonBackToTop from "@/app/components/atomic/ButtonBackToTop"
 import ButtonFilter from "@/app/components/atomic/ButtonFilter"
-import CardMovie, { MovieType, SeriesType } from "@/app/components/atomic/CardMovie"
+import CardMovie, { MovieType } from "@/app/components/atomic/CardMovie"
 import LoadPage from "@/app/components/atomic/LoadPage"
 import Loading from "@/app/components/atomic/loading"
 import { useGetAiringTodayQuery, useGetPopularSeriesQuery, useGetTopRateSeriesQuery } from "@/lib/redux/services/series"
@@ -43,8 +43,8 @@ export default function Series() {
                     </div>
 
                     <div className="movie-listing">
-                        {series.map((item: SeriesType, i: number) => (
-                            <CardMovie media_type="tv" title={item.name} orientation="portrait" id={item.id} index={i} key={item.id} poster_path={item.poster_path ?? ""} backdrop_path={item.backdrop_path ?? ""} />
+                        {series.map((item: MovieType, i: number) => (
+                            <CardMovie media_type="tv" name={item.name} orientation="portrait" id={item.id} index={i} key={item.id} poster_path={item.poster_path ?? ""} backdrop_path={item.backdrop_path ?? ""} />
                         ))}
                     </div>
                     <Loading tv={true} />
