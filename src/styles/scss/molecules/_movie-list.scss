@@ -81,7 +81,7 @@
         }
     }
     .featured {
-        padding: 10px 0;
+        padding: 18px 0;
         height: 400px;
         width: 100%;
         margin-top: 2rem;
@@ -89,10 +89,10 @@
         flex-direction: row;
         gap: 16px;
         overflow-x: hidden;
-        overflow-y: visible;
+        overflow-y: hidden;
 
         &.landscape {
-            height: 200px;
+            height: 228px;
         }
     }
 }

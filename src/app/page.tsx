@@ -5,12 +5,12 @@ import styles from './page.module.css'
 import Header from '@/app/components/molecules/Header';
 import ListMovie from '@/app/components/molecules/ListMovie';
 import { useDispatch, useSelector } from 'react-redux';
-import { Suspense, useEffect } from 'react';
+import { useEffect } from 'react';
 import { setLoading } from '@/lib/redux/slice/loadingSlice';
-import Loading from './movie/[...slug]/loading';
 export default function Home() {
   const { isLoading } = useSelector((state: any) => state.loading)
   const dispatch = useDispatch()
+
 
   useEffect(() => {
     // Fungsi untuk menandai bahwa halaman telah selesai dimuat

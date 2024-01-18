@@ -937,7 +937,7 @@ header .top-movies .movie-list .top-movie-card img {
   display: none;
 }
 .listMovie .featured {
-  padding: 10px 0;
+  padding: 18px 0;
   height: 400px;
   width: 100%;
   margin-top: 2rem;
@@ -945,10 +945,10 @@ header .top-movies .movie-list .top-movie-card img {
   flex-direction: row;
   gap: 16px;
   overflow-x: hidden;
-  overflow-y: visible;
+  overflow-y: hidden;
 }
 .listMovie .featured.landscape {
-  height: 200px;
+  height: 228px;
 }
 
 @media (min-width: 768px) and (max-width: 1365px) {
@@ -1126,7 +1126,7 @@ header .top-movies .movie-list .top-movie-card img {
 }
 
 .loadPage {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100vh;
   z-index: 99999;
