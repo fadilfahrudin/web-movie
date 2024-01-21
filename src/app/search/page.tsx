@@ -8,11 +8,12 @@ import { setLoading } from "@/lib/redux/slice/loadingSlice"
 import { useGetSeriesByIdQuery } from "@/lib/redux/services/series"
 import { movieApi } from "@/config/api-config"
 import SearchComponent from "../components/atomic/Search"
-import AnimatedComponent from "./animation"
+import { useGetBySearchQuery } from "@/lib/redux/services/movies"
 
 export default function Search() {
     const { data, isLoading: loadSeries, isSuccess } = useGetSeriesByIdQuery(95479)
-    const { poster_path, title } = isSuccess && data
+    const { data: query, isSuccess: querySuccess } = useGetBySearchQuery("jujutsu kaisen")
+    const { title } = isSuccess && data
     const { originalImg } = movieApi
     const { isLoading } = useSelector((state: any) => state.loading)
     const dispatch = useDispatch()
@@ -21,7 +22,6 @@ export default function Search() {
         e.preventDefault()
         setSearch(e.target[0].value)
     }
-
 
     useEffect(() => {
         if (loadSeries) {
@@ -43,6 +43,7 @@ export default function Search() {
         transform: search == "" ? "translateY(16px)" : "translateY(-100px)",
     }
 
+    const ref = useRef<HTMLDivElement>(null)
 
     return (
         <>
@@ -50,8 +51,11 @@ export default function Search() {
             {!isLoading &&
                 <div id="search-page" >
                     <div className="search-bg-overlay" style={overlayBg}></div>
-                    <div className="searh-img-bg" style={imgBg}>
-                        <img src={originalImg(poster_path)} alt={title} width="100%" height="100%" />
+
+                    <div ref={ref} className="searh-img-bg" style={imgBg}>
+                        {querySuccess && query.results.map((item: any) => (
+                            <img key={item.id} src={originalImg(item.backdrop_path)} alt={title} width="100%" height="100%" />
+                        ))}
                     </div>
                     <SearchComponent search={search} onSubmit={(e) => onSubmit(e)} />
                     {search == "" ? "" :

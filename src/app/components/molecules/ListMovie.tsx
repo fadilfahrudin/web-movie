@@ -29,13 +29,6 @@ const ListMovie = ({ listType, listLimit, listPath, listTitle, movieId, collecti
     const { data: trending, isSuccess: trendingSuccess, isLoading: trendingLoad } = useGetPopularQuery()
     const filterCollection = collectionSuccess && collection.parts.filter((item: MovieType) => item.id !== parseInt(String(movieId ?? "0")))
 
-    if (querySuccess) {
-        console.log(query)
-    }
-    useEffect(() => {
-        console.log(keyword)
-    }, [keyword])
-
     const swipe = (direction: string) => {
         if (ref.current) {
             const { scrollLeft, clientWidth } = ref.current

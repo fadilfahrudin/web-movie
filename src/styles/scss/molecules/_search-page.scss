@@ -9,85 +9,102 @@
     gap: 4rem;
     .search-bg-overlay {
         position: absolute;
-        // top: 7rem;
         transition: all 0.5s ease-in-out;
         z-index: -1;
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(5px);
         box-shadow: inset 0px 0px 44px 25px #22283193;
-        background: rgb(34, 40, 49);
+        background: rgb(34, 40, 49, 0.3);
         background: linear-gradient(297deg, rgba(34, 40, 49, 0.753) 35%, rgba(44, 57, 75, 0.322) 82%);
     }
     .searh-img-bg {
         position: absolute;
-        // top: 7rem;
         z-index: -2;
         transition: all 0.5s ease-in-out;
+        overflow-x: hidden;
+        display: flex;
         img {
+            flex-shrink: 0;
+            flex-basis: 100%;
             object-fit: cover;
         }
     }
     .search-form {
         display: flex;
-        gap: 12px;
-        input {
-            outline: none;
-            border: none;
-            width: 40vw;
-            height: 50px;
-            padding: 0 2rem;
-            border-radius: 0.75rem;
-            background-color: $color-light;
-            color: $color-dark-100;
-            font-size: 1rem;
-            box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.603);
-            transition: all 0.5s ease-in-out;
-            &::placeholder {
-                color: $color-dark-100;
-            }
-            &:focus {
-                box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.603);
-            }
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        label {
+            padding: 0.5rem 1.5rem;
+            font-size: 2rem;
+            font-weight: 600;
+            color: $color-light;
+            text-shadow: 0px 0px 16px rgb(221, 221, 221);
         }
-        .btn-search {
-            cursor: pointer;
-            padding: 0 1.25rem;
-            border-radius: 0.75rem;
-            border: none;
-
-            font-size: 0.86rem;
-            font-weight: 700;
-
-            position: relative;
-            overflow: hidden;
-            color: $color-dark-25;
-            -webkit-background-clip: text;
-            background-clip: text;
-
-            transition: all 0.5s ease-in-out;
-            &::before {
-                content: "";
-                position: absolute;
-                z-index: -1;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                background: linear-gradient(132deg, rgba(221, 221, 221, 1) 40%, rgba(44, 57, 75, 0.76) 79%);
-                transition: 0.5s ease-in-out;
+        .form-input {
+            display: flex;
+            gap: 12px;
+            input {
+                outline: none;
+                border: none;
+                width: 40vw;
+                height: 50px;
+                padding: 0 2rem;
+                border-radius: 0.75rem;
+                background-color: $color-light;
+                color: $color-dark-100;
+                font-size: 1rem;
+                box-shadow: inset 0px 0px 8px 0px rgba(0, 0, 0, 0.603);
+                transition: all 0.5s ease-in-out;
+                &::placeholder {
+                    color: $color-dark-100;
+                }
+                &:focus {
+                    box-shadow: 0px 0px 16px 0px rgb(221, 221, 221);
+                }
             }
+            .btn-search {
+                cursor: pointer;
+                padding: 0 1.25rem;
+                border-radius: 0.75rem;
+                border: none;
 
-            &:hover {
+                font-size: 0.86rem;
                 font-weight: 700;
-                background: $color-dark-100;
-                box-shadow: 0px 0px 16px 0px rgb(221, 221, 221);
-                color: transparent;
+
+                position: relative;
+                overflow: hidden;
+                color: $color-dark-25;
                 -webkit-background-clip: text;
                 background-clip: text;
-            }
 
-            &:hover::before {
-                width: 280%;
-                background: rgb(221, 221, 221);
-                background: linear-gradient(132deg, rgba(221, 221, 221, 1) 40%, rgba(44, 57, 75, 1) 79%);
+                transition: all 0.5s ease-in-out;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    z-index: -1;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    background: linear-gradient(162deg, rgba(221, 221, 221, 1) 40%, rgba(44, 57, 75, 0.514) 79%);
+                    transition: 0.5s ease-in-out;
+                }
+
+                &:hover {
+                    font-weight: 700;
+                    background: $color-dark-100;
+                    box-shadow: 0px 0px 16px 0px rgb(221, 221, 221);
+                    color: transparent;
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                }
+
+                &:hover::before {
+                    width: 280%;
+                    background: rgb(221, 221, 221);
+                    background: linear-gradient(162deg, rgba(221, 221, 221, 1) 40%, rgba(44, 57, 75, 0.514) 79%);
+                }
             }
         }
     }
