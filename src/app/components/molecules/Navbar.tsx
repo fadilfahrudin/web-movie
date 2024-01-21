@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client"
-import { Logo } from '@/assets/img';
+import { Logo, logoDark } from '@/assets/img';
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import ButtonBackToTop from '../atomic/ButtonBackToTop';
@@ -34,7 +34,7 @@ export const Navbar = () => {
             </nav>
             <nav className="mobile-navigation">
                 <ul>
-                    <li><a role='button' className={pathname === '/' ? 'active' : ''} onClick={() => handleClick('/')}><img src={Logo.src} alt="Fadils Movie" width={35} height={35} /></a></li>
+                    <li><a role='button' className={pathname === '/' ? 'active' : ''} onClick={() => handleClick('/')}><img src={logoDark.src} alt="Fadils Movie" width={30} height={30} /></a></li>
                     <li><a role='button' className={pathname === '/movies' ? 'active' : ''} onClick={() => handleClick('/movies')}>Movies</a></li>
                     <li><a role='button' className={pathname === '/series' ? 'active' : ''} onClick={() => handleClick('/series')}>Series</a></li>
                     <li><a role='button' className='about'>About</a></li>

@@ -4,27 +4,30 @@ header {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
+    height: 60vh;
     overflow: hidden;
     .landscape-poster {
-        position: absolute;
+        position: relative;
         width: 100%;
-        height: 100%;
+        height: 50vh;
         iframe {
             position: absolute;
-            top: -20%;
-            width: 118vw;
-            height: 144vh;
+            top: -10%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
             pointer-events: none;
+            transform: scale(1.5);
         }
 
         &::after {
             content: "";
             position: absolute;
             width: 100%;
-            height: 100%;
+            height: 70vh;
             left: 0;
-            top: 0;
+            top: 26px;
             background: rgb(34, 40, 49);
             background: linear-gradient(122deg, rgba(34, 40, 49, 0.911) 36%, rgba(44, 57, 75, 0.171) 65%);
         }
@@ -33,24 +36,22 @@ header {
             position: absolute;
             z-index: 99;
             width: 100%;
-            height: 10%;
+            height: 100%;
             left: 0;
-            bottom: 0;
+            bottom: -15%;
             background: rgb(34, 40, 49);
             background: linear-gradient(0deg, rgba(34, 40, 49, 0.9780287114845938) 30%, rgba(44, 57, 75, 0) 100%);
         }
     }
     .detail-movie {
         position: relative;
-        top: 30%;
-        z-index: 99;
+        top: -32%;
+        z-index: 100;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        gap: 12px;
-        width: 50vw;
+        gap: 6px;
+        width: 100vw;
         padding: 0 1.75rem;
-        padding-left: 4rem;
         .rate {
             display: flex;
             align-items: center;
@@ -59,20 +60,21 @@ header {
         h1 {
             color: $color-light;
             font-weight: 700;
-            font-size: 3rem;
+            font-size: 2rem;
             line-height: 150%;
         }
         p {
             color: $color-light-50;
+            display: none;
         }
         .btn-watch {
             font-size: 0.86rem;
             font-weight: 700;
 
-            width: 200px;
+            width: 136px;
             position: relative;
             cursor: pointer;
-            padding: 12px 4rem;
+            padding: 12px 1rem;
             border: none;
             border-radius: 4px;
             overflow: hidden;
@@ -110,18 +112,26 @@ header {
         }
     }
     .top-movies {
-        bottom: 10%;
-        right: 4rem;
+        z-index: 100;
+        bottom: 0;
+        padding: 10px 1.25rem;
         position: absolute;
         width: 100vw;
+        height: auto;
         display: flex;
-        justify-content: end;
+        justify-content: start;
         .movie-list {
             position: relative;
             list-style: none;
             display: flex;
-            flex-direction: column;
-            gap: 16px;
+            flex-direction: row;
+            justify-content: start;
+            gap: 10px;
+            width: 100%;
+            overflow-x: scroll;
+            &::-webkit-scrollbar {
+                display: none;
+            }
 
             .top-movie-card {
                 position: relative;
@@ -155,6 +165,173 @@ header {
                     width: 160px;
                     height: auto;
                     aspect-ratio: 16/9;
+                }
+            }
+        }
+    }
+}
+
+@include media.desktop {
+    header {
+        position: relative;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        .landscape-poster {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            iframe {
+                position: absolute;
+                top: -20%;
+                width: 118vw;
+                height: 144vh;
+                pointer-events: none;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background: rgb(34, 40, 49);
+                background: linear-gradient(122deg, rgba(34, 40, 49, 0.911) 36%, rgba(44, 57, 75, 0.171) 65%);
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                z-index: 99;
+                width: 100%;
+                height: 10%;
+                left: 0;
+                bottom: 0;
+                background: rgb(34, 40, 49);
+                background: linear-gradient(0deg, rgba(34, 40, 49, 0.9780287114845938) 30%, rgba(44, 57, 75, 0) 100%);
+            }
+        }
+        .detail-movie {
+            position: relative;
+            top: 30%;
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+            width: 50vw;
+            padding: 0 1.75rem;
+            padding-left: 4rem;
+            .rate {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            h1 {
+                color: $color-light;
+                font-weight: 700;
+                font-size: 3rem;
+                line-height: 150%;
+            }
+            p {
+                display: block;
+                color: $color-light-50;
+            }
+            .btn-watch {
+                font-size: 0.86rem;
+                font-weight: 700;
+
+                width: 200px;
+                position: relative;
+                cursor: pointer;
+                padding: 12px 4rem;
+                border: none;
+                border-radius: 4px;
+                overflow: hidden;
+                color: $color-dark-25;
+                -webkit-background-clip: text;
+                background-clip: text;
+
+                transition: all 0.5s ease-in-out;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    z-index: -1;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    background: linear-gradient(132deg, rgba(221, 221, 221, 1) 40%, rgba(44, 57, 75, 1) 79%);
+                    transition: 0.5s ease-in-out;
+                }
+
+                &:hover {
+                    font-weight: 700;
+                    background: $color-dark-100;
+                    box-shadow: 0px 0px 16px 0px rgb(221, 221, 221);
+                    color: transparent;
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                }
+
+                &:hover::before {
+                    width: 280%;
+                    background: rgb(221, 221, 221);
+                    background: linear-gradient(132deg, rgba(221, 221, 221, 1) 40%, rgba(44, 57, 75, 1) 79%);
+                }
+            }
+        }
+        .top-movies {
+            bottom: 10%;
+            right: 4rem;
+            position: absolute;
+            width: max-content;
+            display: flex;
+            justify-content: end;
+            .movie-list {
+                position: relative;
+                list-style: none;
+                display: flex;
+                justify-content: unset;
+                flex-direction: column;
+                gap: 16px;
+
+                .top-movie-card {
+                    position: relative;
+                    cursor: pointer;
+                    flex-shrink: 0;
+                    flex-grow: 0;
+                    border: none;
+                    background-color: transparent;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: 99;
+                        width: 100%;
+                        height: 100%;
+                        background: rgb(34, 40, 49);
+                        background: linear-gradient(122deg, rgba(34, 40, 49, 0.452) 36%, rgba(44, 57, 75, 0.096) 65%);
+                    }
+                    border-radius: 10px;
+                    overflow: hidden;
+
+                    &.active {
+                        border: 1px solid $color-light;
+                        box-shadow: 0px 0px 14px 0px rgb(221, 221, 221);
+                        &::after {
+                            background: unset;
+                        }
+                    }
+                    img {
+                        width: 160px;
+                        height: auto;
+                        aspect-ratio: 16/9;
+                    }
                 }
             }
         }

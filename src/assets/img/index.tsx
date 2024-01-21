@@ -9,8 +9,10 @@ import logoGithub from './Github.svg';
 import logoIg from './ig.svg';
 import logoLinkedIn from './linkin.svg';
 import logoYoutube from './Yt.svg';
+import logoDark from './logo-dark.svg';
 
 export {
+    logoDark,
     logoDribbble,
     logoBehance,
     logoGithub,

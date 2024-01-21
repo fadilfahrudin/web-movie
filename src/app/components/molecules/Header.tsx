@@ -33,8 +33,10 @@ const Header = () => {
         <header>
             <div className="landscape-poster">
                 {isSuccess && (
+                    // <iframe width="560" height="315" src={`https://www.youtube.com/embed/${key}?si=mEqWJFl86CH6C3CA&controls=0&autoplay=1&mute=1&loop=1`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     <iframe
-                        src={`https://www.youtube.com/embed/${key}?si=mEqWJFl86CH6C3CA&playlist=${key}&controls=0&autoplay=1&mute=1&loop=1`}
+                        src={`https://www.youtube.com/embed/${key}?si=mEqWJFl86CH6C3CA&playlist=${key}&controls=0&autoplay=1&mute=1&loop=1&rel=0&showinfo=0&modestbranding=1`}
+                        width="560" height="315"
                         title='YouTube video player'
                         allow='accelerometer; autoplay; clipboard-write; '
                         allowFullScreen></iframe>

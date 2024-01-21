@@ -23,6 +23,7 @@
         li {
             position: relative;
             a {
+                cursor: pointer;
                 text-decoration: none;
                 border: none;
                 position: relative;
@@ -136,7 +137,6 @@
                     border: none;
                     font-size: 14px;
                     position: relative;
-                    // transition: all 0.5s linear;
                     color: $color-dark-25;
                     background: $color-dark-25;
                     -webkit-background-clip: text;

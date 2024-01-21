@@ -26,6 +26,10 @@ const CardMovie = (props: MovieType) => {
     const route = useRouter();
     const main = useRef<HTMLButtonElement | null>(null);
     const { thumb } = movieApi
+    // let cardStyles: CSSProperties = {
+    //     flexBasis: props.orientation == "portrait" ? "calc((100vw / 5) - 18px)" : "calc((100vw / 4) - 18px)",
+    //     height: props.orientation == "portrait" ? "360px" : "200px",
+    // }
     useGSAP(() => {
         const card = gsap.utils.toArray('.card-item-movie');
         card.forEach((item: any) => {
@@ -37,13 +41,11 @@ const CardMovie = (props: MovieType) => {
         })
     }, { scope: main })
 
+
     const styles: CSSProperties = {
         aspectRatio: props.orientation == "portrait" ? "2/3" : "16/9",
     }
-    const cardStyles: CSSProperties = {
-        flexBasis: props.orientation == "portrait" ? "calc((100vw / 5) - 18px)" : "calc((100vw / 4) - 18px)",
-        height: props.orientation == "portrait" ? "360px" : "200px",
-    }
+
 
     const handleClick = () => {
         if (props.media_type == "tv") {
@@ -57,7 +59,7 @@ const CardMovie = (props: MovieType) => {
 
 
     return (
-        <button ref={main} style={cardStyles} type="button" className={`card-movie ${props.isLoading ? "loading" : ""}`} onClick={handleClick}>
+        <button ref={main} type="button" className={`card-movie ${props.isLoading ? "loading" : ""} ${props.orientation == "landscape" ? "landscape" : ""}`} onClick={handleClick}>
             <img src={props.orientation == "portrait" ? thumb(props.poster_path ?? "") : thumb(props.backdrop_path ?? "")} alt={props.media_type == "tv" ? props.name : props.title} className="card-item-movie" style={styles} width="100%" height="100%" />
             <p className="card-title">{props.media_type == "tv" ? props.name : props.title}</p>
         </button>
