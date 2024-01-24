@@ -1,14 +1,15 @@
 footer {
     position: relative;
     width: 100%;
-    height: 240px;
+    height: 442px;
     text-align: center;
     background-color: $color-dark-50;
+    overflow: hidden;
     .list-img-footer {
         position: absolute;
         top: 0;
         left: 0;
-        height: 100%;
+        height: 70%;
         width: 100%;
         list-style: none;
         display: flex;
@@ -18,7 +19,7 @@ footer {
             flex-grow: 0;
             flex-basis: calc(100% / 10);
             width: calc(100% / 10);
-            height: 200px;
+            height: 345px;
             background-color: $color-dark-25;
             img {
                 object-fit: cover;
@@ -39,15 +40,16 @@ footer {
     }
     .license {
         position: absolute;
-        top: 0;
+        bottom: 120px;
         right: 0;
-        padding: 2rem 4rem;
-        width: 50%;
-        height: 100%;
+        padding: 0.75rem;
+        width: 90%;
+        height: auto;
         display: flex;
         flex-direction: column;
         align-items: end;
         gap: 20px;
+        border-top: 1px solid aliceblue;
         .social-media-wrapp {
             display: flex;
             gap: 6px;
@@ -57,9 +59,10 @@ footer {
             text-align: end;
             .say-hello {
                 font-weight: 700;
-                font-size: 2rem;
+                font-size: 1rem;
             }
             a {
+                font-size: 0.75rem;
                 color: $color-light;
                 font-weight: 700;
                 text-decoration: underline;
@@ -71,10 +74,11 @@ footer {
         }
     }
     .footer-info {
-        padding: 2rem 4rem;
-        position: absolute;
+        padding: 0rem 0.75rem;
+        padding-top: 10px;
+        position: relative;
         z-index: 2;
-        width: 50%;
+        width: 100%;
         height: 100%;
         top: 0;
         left: 0;
@@ -109,5 +113,123 @@ footer {
         height: auto;
         color: $color-light;
         font-size: 0.75rem;
+    }
+}
+
+@include media.desktop {
+    footer {
+        margin-top: 1rem;
+        position: relative;
+        width: 100%;
+        height: 240px;
+        text-align: center;
+        background-color: $color-dark-50;
+        .list-img-footer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            list-style: none;
+            display: flex;
+            overflow: hidden;
+            li {
+                flex-shrink: 0;
+                flex-grow: 0;
+                flex-basis: calc(100% / 10);
+                width: calc(100% / 10);
+                height: 200px;
+                background-color: $color-dark-25;
+                img {
+                    object-fit: cover;
+                    aspect-ratio: 1/2;
+                }
+            }
+
+            &::after {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background: rgb(34, 40, 49);
+                background: linear-gradient(297deg, rgba(34, 40, 49, 0.836) 35%, rgba(44, 57, 75, 0.603) 82%);
+            }
+        }
+        .license {
+            border-top: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 2rem 4rem;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            gap: 20px;
+            .social-media-wrapp {
+                display: flex;
+                gap: 6px;
+            }
+            .about {
+                color: $color-light;
+                text-align: end;
+                .say-hello {
+                    font-weight: 700;
+                    font-size: 2rem;
+                }
+                a {
+                    color: $color-light;
+                    font-weight: 700;
+                    text-decoration: underline;
+
+                    &:hover {
+                        color: lightcoral;
+                    }
+                }
+            }
+        }
+        .footer-info {
+            padding: 2rem 4rem;
+            position: absolute;
+            z-index: 2;
+            width: 50%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                height: 80%;
+                width: auto;
+                label {
+                    text-align: left;
+                    font-weight: 600;
+                    color: $color-light;
+                }
+                li {
+                    text-align: left;
+                    a {
+                        &:hover {
+                            color: lightcoral;
+                        }
+                    }
+                }
+            }
+        }
+        .copyright {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            height: auto;
+            color: $color-light;
+            font-size: 0.75rem;
+        }
     }
 }

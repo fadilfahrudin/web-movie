@@ -3,6 +3,8 @@
 import { useGetCreditQuery } from "@/lib/redux/services/movies"
 import { movieApi } from "@/config/api-config"
 import { MovieType } from "./CardMovie"
+import { useRef } from "react"
+import { IcArrowLeft, IcArrowRight } from "@/assets/icon"
 
 export type CastType = {
     id: number,
@@ -12,6 +14,7 @@ export type CastType = {
 }
 
 const Credit = (props: MovieType) => {
+    const ref = useRef<HTMLDivElement>(null)
     const { thumb } = movieApi
     const { data, isSuccess } = useGetCreditQuery(props.id)
 
@@ -28,32 +31,51 @@ const Credit = (props: MovieType) => {
         return false
     })
 
+    const swipe = (direction: string) => {
+        if (ref.current) {
+            const { scrollLeft, clientWidth } = ref.current
+            const scrollTo = direction === "left"
+                ? scrollLeft - (clientWidth / 3)
+                : scrollLeft + (clientWidth / 3)
+            ref.current.scrollTo({ left: scrollTo, behavior: "smooth" })
+        }
+    }
 
 
     return (
-        <div className="cast">
-            {isSuccess && data.cast.slice(0, 4).map((cast: CastType) => (
-                <div key={cast.id} className="cast-info">
-                    <img src={thumb(cast.profile_path)} alt={cast.name} width="100%" height="100%" />
-                    <div className="cast-name">{cast.name}</div>
-                </div>
-            ))}
-
-            <div className="director-writer">
-                <div className="director">
-                    <div className="director-title">Director</div>
-                    <div className="director-name">{director.name}</div>
-                </div>
-                <div className="writer">
-                    <div className="writer-title">Writer</div>
-                    <ul className="writer-list">
-                        {isSuccess && filGender.map((item: any) => (
-                            <li key={item.id}>{item.name}</li>
-                        ))}
-                    </ul>
+        <>
+            <div className="cast-header">
+                <h5>Cast and Crew:</h5>
+                <div className="swipe">
+                    <button onClick={() => swipe("left")}> <img src={IcArrowLeft.src} alt="arrow left" width={8} height={14} /></button>
+                    <button onClick={() => swipe("right")}> <img src={IcArrowRight.src} alt="arrow right" width={8} height={14} /></button>
                 </div>
             </div>
-        </div>
+            <div className="cast" ref={ref}>
+                {isSuccess && data.cast.slice(0, 4).map((cast: CastType) => (
+                    <div key={cast.id} className="cast-info">
+                        <img src={thumb(cast.profile_path)} alt={cast.name} width="100%" height="100%" />
+                        <div className="cast-name">{cast.name}</div>
+                    </div>
+                ))}
+
+                <div className="director-writer">
+                    <div className="director">
+                        <div className="director-title">Director</div>
+                        <div className="director-name">{director.name}</div>
+                    </div>
+                    <div className="writer">
+                        <div className="writer-title">Writer</div>
+                        <ul className="writer-list">
+                            {isSuccess && filGender.map((item: any) => (
+                                <li key={item.id}>{item.name}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </>
+
     )
 }
 

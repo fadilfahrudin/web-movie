@@ -9,6 +9,7 @@ import { useGetSeriesByIdQuery } from "@/lib/redux/services/series"
 import { movieApi } from "@/config/api-config"
 import SearchComponent from "../components/atomic/Search"
 import { useGetBySearchQuery } from "@/lib/redux/services/movies"
+import gsap from "gsap"
 
 export default function Search() {
     const { data, isLoading: loadSeries, isSuccess } = useGetSeriesByIdQuery(95479)
@@ -30,6 +31,22 @@ export default function Search() {
             dispatch(setLoading(false))
         }
     }, [isLoading, dispatch, loadSeries, isSuccess])
+
+    useEffect(() => {
+        let mm = gsap.matchMedia()
+        mm.add("(max-width: 767px)", () => {
+            gsap.set(".search-bg-overlay", {
+                width: "100%",
+                height: search == "" ? "100vh" : "26vh",
+                transform: "translateY(16px)",
+            })
+            gsap.set(".searh-img-bg", {
+                width: "100%",
+                height: search == "" ? "100vh" : "26vh",
+                transform: "translateY(16px)",
+            })
+        })
+    })
 
     // Animat style
     const imgBg: CSSProperties = {

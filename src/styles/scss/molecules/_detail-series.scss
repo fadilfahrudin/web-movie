@@ -7,10 +7,10 @@
         width: 100%;
         height: auto;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 2rem;
 
-        padding: 4rem;
+        padding: 4rem 1.75rem;
         padding-top: 7rem;
         .overlay-backdrop-series {
             position: absolute;
@@ -35,7 +35,7 @@
             }
         }
         .poster-series {
-            display: flex;
+            display: none;
             align-items: center;
             width: 25%;
             height: 450px;
@@ -48,7 +48,7 @@
         }
 
         .info-series {
-            width: 60%;
+            width: 100%;
             height: auto;
 
             display: flex;
@@ -80,6 +80,7 @@
                 font-weight: 600;
             }
             .overview-series {
+                display: none;
                 color: $color-light;
                 font-size: 1.2rem;
                 font-weight: 400;
@@ -87,6 +88,7 @@
                 font-family: Inter, sans-serif;
             }
             .series-video {
+                display: none;
                 width: 100%;
                 height: auto;
                 iframe {
@@ -198,6 +200,217 @@
                             font-weight: 700;
                             line-height: 150%;
                             max-width: 30%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media.desktop {
+    #detail-series {
+        position: relative;
+        top: -5rem;
+        min-height: 100vh;
+        .header-series {
+            position: relative;
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+
+            padding: 4rem;
+            padding-top: 7rem;
+            .overlay-backdrop-series {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background: rgb(34, 40, 49);
+                background: linear-gradient(297deg, rgba(34, 40, 49, 0.836) 35%, rgba(44, 57, 75, 0.603) 82%);
+            }
+            .backdrop-series {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -2;
+                img {
+                    aspect-ratio: 16/9;
+                    object-fit: cover;
+                }
+            }
+            .poster-series {
+                display: flex;
+                align-items: center;
+                width: 25%;
+                height: 450px;
+                position: relative;
+                box-shadow: 0px 10px 24px -3px rgba(0, 0, 0, 0.425);
+                img {
+                    height: 450px;
+                    object-fit: cover;
+                }
+            }
+
+            .info-series {
+                width: 60%;
+                height: auto;
+
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .list-info {
+                    cursor: default;
+                    display: flex;
+                    gap: 10px;
+                    list-style: none;
+                    li {
+                        background-color: $color-light;
+                        width: 150px;
+                        height: auto;
+                        padding: 16px 0;
+                        text-align: center;
+                        color: $color-dark-100;
+                    }
+                }
+                .series-title {
+                    color: $color-light;
+                    font-size: 4rem;
+                    font-weight: 700;
+                    font-family: Inter, sans-serif;
+                }
+                .genres-series {
+                    color: $color-light;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                }
+                .overview-series {
+                    display: block;
+                    color: $color-light;
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                    line-height: 1.5rem;
+                    font-family: Inter, sans-serif;
+                }
+                .series-video {
+                    width: 100%;
+                    height: auto;
+                    iframe {
+                        aspect-ratio: 16/9;
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+        }
+        .more-series {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 4rem;
+            gap: 10px;
+
+            h2 {
+                font-size: 1.75rem;
+                font-weight: 600;
+                color: $color-light;
+                line-height: 150%;
+                margin-bottom: 10px;
+            }
+            .seasons-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .select-wrapper {
+                    padding: 5px 0;
+                    padding-left: 10px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    background-color: $color-dark-100;
+                    label {
+                        color: $color-light;
+                        font-size: 1rem;
+                        font-weight: 700;
+                        line-height: 150%;
+                    }
+                    .seasons-select {
+                        background-color: $color-dark-100;
+                        border: 1px solid $color-dark-50;
+                        padding: 4px;
+                        outline: 1px solid $color-light;
+                        .opt-season {
+                            padding: 10px;
+                            color: $color-light;
+                            background-color: transparent;
+                            border: 1px solid $color-light;
+                        }
+                    }
+                }
+                .episode-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    .episode {
+                        cursor: pointer;
+                        border: none;
+                        width: 100%;
+                        height: 100px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 10px;
+                        background-color: $color-dark-100;
+                        .thumb-episode {
+                            width: 100px;
+                            height: 100px;
+                            img {
+                                aspect-ratio: 1/1;
+                                object-fit: cover;
+                                border: 1px solid $color-dark-25;
+                            }
+                        }
+                        .episode-info {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 5px;
+                            overflow: hidden;
+                            text-align: start;
+                            .episode-title {
+                                color: $color-light;
+                                font-size: 1rem;
+                                font-weight: 600;
+                                line-height: 150%;
+                                max-width: 70%;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                            .episode-overview {
+                                color: $color-light-50;
+                                font-size: 0.75rem;
+                                font-weight: 400;
+                                line-height: 150%;
+                                max-width: 88%;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                            .episode-number {
+                                color: $color-light-50;
+                                font-size: 0.75rem;
+                                font-weight: 700;
+                                line-height: 150%;
+                                max-width: 30%;
+                            }
                         }
                     }
                 }

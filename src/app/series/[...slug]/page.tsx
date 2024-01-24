@@ -14,9 +14,6 @@ export async function fetchSeriesById(id: number) {
 const DetailSeries = async ({ params }: { readonly params: { slug: number } }) => {
     const data = await fetchSeriesById(params.slug);
     const { originalImg } = movieApi
-    if (data) {
-        console.log(data);
-    }
     const { backdrop_path, genres, name, poster_path, overview, number_of_seasons, number_of_episodes, vote_average } = data
     return (
         <Suspense fallback={<Loading />}>
