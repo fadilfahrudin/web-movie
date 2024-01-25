@@ -1,9 +1,9 @@
 "use client"
 import { useGetVideoQuery } from "@/lib/redux/services/movies"
-import { SeriesType } from "./CardMovie"
+import { MovieType } from "./CardMovie"
 import { useEffect, useState } from "react"
 import { useGetVideoSeriesQuery } from "@/lib/redux/services/series"
-const Iframe = (props: SeriesType) => {
+const Iframe = (props: MovieType) => {
     const [videoKey, setVideoKey] = useState<string>("")
     const { data, isSuccess } = useGetVideoQuery(props.id)
     const { data: series, isSuccess: seriesSuccess } = useGetVideoSeriesQuery(props.id)
@@ -11,7 +11,7 @@ const Iframe = (props: SeriesType) => {
     const trailer = isSuccess && data.results.find((item: any) => item.type === "Trailer")
 
     useEffect(() => {
-        if (props.tv) {
+        if (props.media_type === "tv") {
             tvTrailer && setVideoKey(tvTrailer.key)
         } else {
             trailer && setVideoKey(trailer.key)

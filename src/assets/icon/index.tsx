@@ -5,8 +5,10 @@ import toTop from "./website-symbol.png";
 import IcArrowLeft from "./arrow-left-ic.png";
 import IcArrowRight from "./arrow-right-ic.png";
 import IcPlay from "./play.png";
+import IcCLose from "./close.png"
 
 export {
+    IcCLose,
     IcPlay,
     IcArrowLeft,
     IcArrowRight,

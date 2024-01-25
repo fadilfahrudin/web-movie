@@ -18,7 +18,7 @@ const SearchComponent = ({ onSubmit, search }: { onSubmit: SubmitHandler, search
         <form ref={element} onSubmit={(onSubmit)} className="search-form"  >
             <label htmlFor="search" id="search-label">Find something here </label>
             <div className="form-input">
-                <input id="search" type="text" placeholder="Search..." />
+                <input id="search" type="text" placeholder="Search..." autoComplete="off" />
                 <button type="submit" className="btn-search">Search</button>
             </div>
         </form >

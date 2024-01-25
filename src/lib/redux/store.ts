@@ -6,7 +6,7 @@ import { seriesApi } from '@/lib/redux/services/series'
 import movieSlice from "./slice/movieSlice";
 import seriesSlice from "./slice/seriesSlice";
 import loadingSlice from "./slice/loadingSlice";
-import counterSlice from "./slice/counterSlice";
+import modalSlice from "./slice/modalSlice";
 
 export const store = configureStore({
     reducer: {
@@ -15,14 +15,14 @@ export const store = configureStore({
         movie: movieSlice,
         series: seriesSlice,
         loading: loadingSlice,
-        counter: counterSlice
+        modal: modalSlice
     },
 
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(moviesApi.middleware).concat(seriesApi.middleware),
 })
 
-store.subscribe(() => console.log(store.getState().movie))
+// store.subscribe(() => console.log(store.getState().movie))
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch
 setupListeners(store.dispatch)

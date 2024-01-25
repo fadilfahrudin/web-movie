@@ -15,7 +15,7 @@ const Footer = async () => {
     const data = await fetchFooter();
 
     return (
-        <footer>
+        <footer id="about">
             <ul className="list-img-footer">
                 {data && data.results.map((item: any, i: number) => (
                     <li key={i}><img src={thumb(item.poster_path)} alt={item.name} width="100%" height="100%" /></li>

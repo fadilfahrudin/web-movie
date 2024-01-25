@@ -29,7 +29,7 @@ export const Navbar = () => {
                     <li><a role='button' className={pathname === '/series' ? 'active' : ''} onClick={() => handleClick('/series')}>Series</a></li>
                     <li><a role='button' className='search' onClick={() => handleClick('/search')}><i className='ic-search' ></i>Search</a></li>
                 </ul>
-                <a href='#about' className="about">ABOUT</a>
+                <a href='https://fadilfahrudin.com' target='_blank' className="about">ABOUT</a>
 
             </nav>
             <nav className="mobile-navigation">
@@ -37,7 +37,7 @@ export const Navbar = () => {
                     <li><a role='button' className={pathname === '/' ? 'active' : ''} onClick={() => handleClick('/')}><img src={logoDark.src} alt="Fadils Movie" width={30} height={30} /></a></li>
                     <li><a role='button' className={pathname === '/movies' ? 'active' : ''} onClick={() => handleClick('/movies')}>Movies</a></li>
                     <li><a role='button' className={pathname === '/series' ? 'active' : ''} onClick={() => handleClick('/series')}>Series</a></li>
-                    <li><a role='button' className='about'>About</a></li>
+                    <li><a role='button' className='about' href='https://fadilfahrudin.com' target='_blank'>About</a></li>
                     <li><a role='button' className='search' onClick={() => handleClick('/search')}><i className='ic-search'></i></a></li>
                 </ul>
                 <ButtonBackToTop />
