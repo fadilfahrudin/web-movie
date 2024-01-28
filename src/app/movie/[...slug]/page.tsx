@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-import Iframe from "@/app/components/atomic/Iframe";
+import Iframe from "@/components/atomic/Iframe";
 import { movieApi } from "@/config/api-config";
-import Credit from "@/app/components/atomic/Credit";
-import ListMovie from "@/app/components/molecules/ListMovie";
+import Credit from "@/components/atomic/Credit";
+import ListMovie from "@/components/molecules/ListMovie";
 import { Suspense } from "react";
 import Loading from "@/app/movie/[...slug]/loading";
 import { IcPlay } from "@/assets/icon";
-import ModalComponent from "@/app/components/atomic/ModalComponent";
-import Button from "@/app/components/atomic/Button";
+import ModalComponent from "@/components/atomic/ModalComponent";
+import Button from "@/components/atomic/Button";
 
 async function FetchMovieById(id: number) {
     await new Promise(resolve => setTimeout(resolve, 2000));

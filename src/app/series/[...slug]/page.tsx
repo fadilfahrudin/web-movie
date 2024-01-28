@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import Iframe from "@/app/components/atomic/Iframe";
-import SeasonsComponent from "@/app/components/atomic/SeasonsComponent";
+import Iframe from "@/components/atomic/Iframe";
+import SeasonsComponent from "@/components/atomic/SeasonsComponent";
 import { movieApi } from "@/config/api-config";
 import { Suspense } from "react";
 import Loading from "./loading";

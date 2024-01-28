@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import { LenisComponent } from '@/lib/lenis'
 import { Inter } from 'next/font/google'
 import '../styles/css/main.css'
-import Navbar from '@/app/components/molecules/Navbar'
-import Footer from '@/app/components/molecules/Footer'
-import ReduxProvider from '@/app/components/ReduxProvider'
+import Navbar from '@/components/molecules/Navbar'
+import Footer from '@/components/molecules/Footer'
+import ReduxProvider from '@/components/ReduxProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 

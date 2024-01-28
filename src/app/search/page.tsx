@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 "use client"
 import { CSSProperties, useEffect, useState, useRef } from "react"
-import ListMovie from "../components/molecules/ListMovie"
+import ListMovie from "../../components/molecules/ListMovie"
 import { useDispatch, useSelector } from "react-redux"
-import LoadPage from "../components/atomic/LoadPage"
+import LoadPage from "../../components/atomic/LoadPage"
 import { setLoading } from "@/lib/redux/slice/loadingSlice"
 import { useGetSeriesByIdQuery } from "@/lib/redux/services/series"
 import { movieApi } from "@/config/api-config"
-import SearchComponent from "../components/atomic/Search"
+import SearchComponent from "../../components/atomic/Search"
 import { useGetBySearchQuery } from "@/lib/redux/services/movies"
 import gsap from "gsap"
 

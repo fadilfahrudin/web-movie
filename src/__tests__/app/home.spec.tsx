@@ -1,6 +1,6 @@
 import HomePage from "@/app/page"
 import { render } from "@testing-library/react"
-import ReduxProvider from "@/app/components/ReduxProvider";
+import ReduxProvider from "@/components/ReduxProvider";
 
 jest.mock("next/navigation", () => ({
     useRouter() {

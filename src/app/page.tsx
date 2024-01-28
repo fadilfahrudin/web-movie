@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 "use client"
-import LoadPage from '@/app/components/atomic/LoadPage';
+import LoadPage from '@/components/atomic/LoadPage';
 import styles from './page.module.css'
-import Header from '@/app/components/molecules/Header';
-import ListMovie from '@/app/components/molecules/ListMovie';
+import Header from '@/components/molecules/Header';
+import ListMovie from '@/components/molecules/ListMovie';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { setLoading } from '@/lib/redux/slice/loadingSlice';
-import ListSeries from './components/molecules/listSeries';
+import ListSeries from '../components/molecules/listSeries';
 export default function Home() {
   const { isLoading } = useSelector((state: any) => state.loading)
   const dispatch = useDispatch()
