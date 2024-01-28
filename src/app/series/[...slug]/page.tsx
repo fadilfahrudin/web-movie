@@ -11,7 +11,7 @@ export async function fetchSeriesById(id: number) {
     return result.json();
 }
 
-const DetailSeries = async ({ params }: { readonly params: { slug: number } }) => {
+export default async function DetailSeries({ params }: { readonly params: { slug: number } }) {
     const data = await fetchSeriesById(params.slug);
     const { originalImg } = movieApi
     const { backdrop_path, genres, name, poster_path, overview, number_of_seasons, number_of_episodes, vote_average } = data
@@ -53,5 +53,3 @@ const DetailSeries = async ({ params }: { readonly params: { slug: number } }) =
         </Suspense>
     )
 }
-
-export default DetailSeries
