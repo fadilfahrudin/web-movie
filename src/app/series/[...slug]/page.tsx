@@ -5,14 +5,14 @@ import { movieApi } from "@/config/api-config";
 import { Suspense } from "react";
 import Loading from "./loading";
 
-export async function fetchSeriesById(id: number) {
+export async function FetchSeriesById(id: number) {
     await new Promise(resolve => setTimeout(resolve, 2000));
     const result = await fetch(`${movieApi.baseUrl}tv/${id}?api_key=${movieApi.api_key}`);
     return result.json();
 }
 
 export default async function DetailSeries({ params }: { readonly params: { slug: number } }) {
-    const data = await fetchSeriesById(params.slug);
+    const data = await FetchSeriesById(params.slug);
     const { originalImg } = movieApi
     const { backdrop_path, genres, name, poster_path, overview, number_of_seasons, number_of_episodes, vote_average } = data
     return (
@@ -40,7 +40,7 @@ export default async function DetailSeries({ params }: { readonly params: { slug
                             {overview}
                         </div>
                         <div className="series-video">
-                            <Iframe tv={true} id={params.slug} />
+                            <Iframe media_type={"tv"} id={params.slug} />
                         </div>
                     </div>
                 </header>
