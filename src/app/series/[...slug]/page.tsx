@@ -5,7 +5,7 @@ import { movieApi } from "@/config/api-config";
 import { Suspense } from "react";
 import Loading from "./loading";
 
-export async function getSeriesById(id: number) {
+async function getSeriesById(id: number) {
     await new Promise(resolve => setTimeout(resolve, 2000));
     const result = await fetch(`${movieApi.baseUrl}tv/${id}?api_key=${movieApi.api_key}`);
     return result.json();
