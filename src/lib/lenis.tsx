@@ -2,7 +2,7 @@
 import Lenis from '@studio-freight/lenis'
 const lenis: Lenis = new Lenis()
 lenis.on('scroll', (e: any) => {
-    // console.log(e)
+    console.log(e)
 })
 
 function raf(time: any) {

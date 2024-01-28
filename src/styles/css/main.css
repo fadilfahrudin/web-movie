@@ -621,7 +621,7 @@ a {
   height: auto;
   display: flex;
   flex-direction: column;
-  padding: 4rem;
+  padding: 4rem 2rem;
   gap: 10px;
 }
 #detail-series .more-series h2 {
