@@ -1,18 +1,8 @@
 "use client"
-import Lenis from '@studio-freight/lenis'
-const lenis: Lenis = new Lenis()
-lenis.on('scroll', (e: any) => {
-    console.log(e)
-})
+import { ReactLenis } from '@studio-freight/react-lenis'
 
-function raf(time: any) {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
-}
-
-export const LenisComponent = ({ children }: { children: React.ReactNode }) => {
-    requestAnimationFrame(raf)
+export default function LenisComponent({ children }: { readonly children: React.ReactNode }) {
     return (
-        <>{children}</>
+        <ReactLenis root options={{ smooth: true, lerp: 0.1, duration: 1.5, }}>{children}</ReactLenis>
     )
 }

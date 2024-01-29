@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { LenisComponent } from '@/lib/lenis'
+import LenisComponent from '@/lib/lenis'
 import { Inter } from 'next/font/google'
 import '../styles/css/main.css'
 import Navbar from '@/components/molecules/Navbar'
