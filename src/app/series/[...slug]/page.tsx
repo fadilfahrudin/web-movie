@@ -40,7 +40,7 @@ export default async function DetailSeries({ params: { slug } }: { params: { slu
                             {overview}
                         </div>
                         <div className="series-video">
-                            <Iframe media_type={"tv"} id={slug} />
+                            <Iframe media_type={"tv"} id={slug} playerVars={{ autoplay: 0, mute: 0 }} />
                         </div>
                     </div>
                 </header>
