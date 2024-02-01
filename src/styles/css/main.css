@@ -814,6 +814,7 @@ a {
     font-family: Inter, sans-serif;
   }
   #detail-series .header-series .info-series .series-video {
+    display: block;
     width: 100%;
     height: auto;
   }

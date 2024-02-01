@@ -3,13 +3,12 @@
 import ButtonBackToTop from "@/components/atomic/ButtonBackToTop"
 import ButtonFilter from "@/components/atomic/ButtonFilter"
 import CardMovie, { MovieType } from "@/components/atomic/CardMovie"
-import LoadPage from "@/components/atomic/LoadPage"
-import Loading from "@/components/atomic/loading"
 import { useGetNowPlayingQuery, useGetPopularQuery, useGetTopRatedQuery, useGetUpcommingQuery } from "@/lib/redux/services/movies"
 import { setLoading } from "@/lib/redux/slice/loadingSlice"
 import { setMovies } from "@/lib/redux/slice/movieSlice"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import Loading from "@/app/loading"
 export default function Movies() {
     const { isLoading } = useSelector((state: any) => state.loading)
     const dispatch = useDispatch()
@@ -39,7 +38,7 @@ export default function Movies() {
 
     return (
         <>
-            {isLoading ? <LoadPage /> :
+            {isLoading ? <Loading /> :
                 <section id="movies">
                     <div className="filter-wrapper">
                         <ButtonFilter nameBtn="Populer" pathName="popular" />
@@ -47,14 +46,11 @@ export default function Movies() {
                         <ButtonFilter nameBtn="Playing Now" pathName="now_playing" />
                         <ButtonFilter nameBtn="Upcoming" pathName="upcoming" />
                     </div>
-
                     <div className="movie-listing">
                         {movies.map((item: MovieType, i: number) => (
                             <CardMovie title={item.title} orientation="portrait" id={item.id} index={i} key={item.id} poster_path={item.poster_path ?? ""} backdrop_path={item.backdrop_path ?? ""} />
                         ))}
                     </div>
-                    <Loading />
-
                     <ButtonBackToTop />
                 </section>
             }

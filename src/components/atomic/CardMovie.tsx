@@ -45,12 +45,11 @@ const CardMovie = (props: MovieType) => {
 
     const handleClick = () => {
         if (props.media_type == "tv") {
-            route.push(`/series/${props.id}`)
+            route.push(`/series/${props.id}`, { scroll: true })
         } else {
-            route.push(`/movie/${props.id}`)
+            route.push(`/movie/${props.id}`, { scroll: true })
         }
         dispatch(setLoading(true))
-
     }
 
 

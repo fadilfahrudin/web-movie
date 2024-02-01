@@ -3,13 +3,13 @@
 import { CSSProperties, useEffect, useState, useRef } from "react"
 import ListMovie from "../../components/molecules/ListMovie"
 import { useDispatch, useSelector } from "react-redux"
-import LoadPage from "../../components/atomic/LoadPage"
 import { setLoading } from "@/lib/redux/slice/loadingSlice"
 import { useGetSeriesByIdQuery } from "@/lib/redux/services/series"
 import { movieApi } from "@/config/api-config"
 import SearchComponent from "../../components/atomic/Search"
 import { useGetBySearchQuery } from "@/lib/redux/services/movies"
 import gsap from "gsap"
+import Loading from "@/app/loading"
 
 export default function Search() {
     const { data, isLoading: loadSeries, isSuccess } = useGetSeriesByIdQuery(95479)
@@ -64,8 +64,7 @@ export default function Search() {
 
     return (
         <>
-            {isLoading && <LoadPage />}
-            {!isLoading &&
+            {isLoading ? <Loading /> :
                 <div id="search-page" >
                     <div className="search-bg-overlay" style={overlayBg}></div>
 

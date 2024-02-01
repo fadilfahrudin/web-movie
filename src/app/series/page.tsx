@@ -3,8 +3,7 @@
 import ButtonBackToTop from "@/components/atomic/ButtonBackToTop"
 import ButtonFilter from "@/components/atomic/ButtonFilter"
 import CardMovie, { MovieType } from "@/components/atomic/CardMovie"
-import LoadPage from "@/components/atomic/LoadPage"
-import Loading from "@/components/atomic/loading"
+import Loading from "@/app/loading"
 import { useGetAiringTodayQuery, useGetPopularSeriesQuery, useGetTopRateSeriesQuery } from "@/lib/redux/services/series"
 import { setLoading } from "@/lib/redux/slice/loadingSlice"
 import { setSeries } from "@/lib/redux/slice/seriesSlice"
@@ -34,7 +33,7 @@ export default function Series() {
 
     return (
         <>
-            {isLoading ? <LoadPage /> :
+            {isLoading ? <Loading /> :
                 <section id="movies">
                     <div className="filter-wrapper">
                         <ButtonFilter nameBtn="Populer" pathName="popular" series={true} />
@@ -47,8 +46,6 @@ export default function Series() {
                             <CardMovie media_type="tv" name={item.name} orientation="portrait" id={item.id} index={i} key={item.id} poster_path={item.poster_path ?? ""} backdrop_path={item.backdrop_path ?? ""} />
                         ))}
                     </div>
-                    <Loading tv={true} />
-
                     <ButtonBackToTop />
                 </section>
             }

@@ -4,7 +4,7 @@ import { movieApi } from "@/config/api-config";
 import Credit from "@/components/atomic/Credit";
 import ListMovie from "@/components/molecules/ListMovie";
 import { Suspense } from "react";
-import Loading from "@/app/movie/[...slug]/loading";
+import Loading from "@/app/loading";
 import { IcPlay } from "@/assets/icon";
 import ModalComponent from "@/components/atomic/ModalComponent";
 import Button from "@/components/atomic/Button";
@@ -19,8 +19,6 @@ export default async function DetailMovie({ params }: { readonly params: { slug:
     const { originalImg } = movieApi
     const data = await FetchMovieById(params.slug);
     const { title, overview, genres, release_date, poster_path, vote_average, backdrop_path, belongs_to_collection, runtime } = data;
-
-
 
     return (
         <Suspense fallback={<Loading />}>
