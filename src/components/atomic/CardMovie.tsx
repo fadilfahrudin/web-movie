@@ -26,10 +26,6 @@ const CardMovie = (props: MovieType) => {
     const route = useRouter();
     const main = useRef<HTMLButtonElement | null>(null);
     const { thumb } = movieApi
-    // let cardStyles: CSSProperties = {
-    //     flexBasis: props.orientation == "portrait" ? "calc((100vw / 5) - 18px)" : "calc((100vw / 4) - 18px)",
-    //     height: props.orientation == "portrait" ? "360px" : "200px",
-    // }
     useGSAP(() => {
         const card = gsap.utils.toArray('.card-item-movie');
         card.forEach((item: any) => {
