@@ -5,6 +5,7 @@ import CardMovie, { MovieType } from "../atomic/CardMovie"
 
 import { useGetBySearchQuery, useGetCollectionQuery, useGetSimilerQuery, useGetNowPlayingQuery, useGetPopularQuery } from "@/lib/redux/services/movies"
 import { swipeLeft, swipeRight } from '@/assets/icon'
+import { skipToken } from '@reduxjs/toolkit/query'
 
 
 export type ListMovieProps = {
@@ -23,8 +24,8 @@ const ListMovie = ({ listType, listLimit, listPath, listTitle, movieId, collecti
     const [scroll, setScroll] = useState(0)
     const ref = useRef<HTMLDivElement>(null)
     const { data: query, isSuccess: querySuccess, isLoading: queryLoad } = useGetBySearchQuery(keyword)
-    const { data: collection, isSuccess: collectionSuccess, isLoading: collecLoad } = useGetCollectionQuery(collectionId)
-    const { data: similar, isSuccess: similarSuccess, isLoading: similarLoad } = useGetSimilerQuery(movieId)
+    const { data: collection, isSuccess: collectionSuccess, isLoading: collecLoad } = useGetCollectionQuery(collectionId ?? skipToken)
+    const { data: similar, isSuccess: similarSuccess, isLoading: similarLoad } = useGetSimilerQuery(movieId ?? skipToken)
     const { data: nowplaying, isSuccess: playingSuccess, isLoading: nowPlayLoad } = useGetNowPlayingQuery()
     const { data: trending, isSuccess: trendingSuccess, isLoading: trendingLoad } = useGetPopularQuery()
     const filterCollection = collectionSuccess && collection.parts.filter((item: MovieType) => item.id !== parseInt(String(movieId ?? "0")))

@@ -14,18 +14,9 @@ export default function Home() {
 
 
   useEffect(() => {
-    // Fungsi untuk menandai bahwa halaman telah selesai dimuat
-    const handleLoad = () => {
+    if (isLoading) {
       dispatch(setLoading(false))
-    };
-
-    // Tambahkan event listener untuk event load pada window
-    window.addEventListener('load', handleLoad);
-
-    // Cleanup: hapus event listener saat komponen di-unmount
-    return () => {
-      window.removeEventListener('load', handleLoad);
-    };
+    }
   }, [dispatch, isLoading])
 
   return (

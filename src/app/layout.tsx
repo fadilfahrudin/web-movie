@@ -21,13 +21,13 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${inter.className} layout`}>
+      <body className={`${inter.className} layout`} suppressHydrationWarning={true}>
         <ReduxProvider>
+          <Navbar />
           <LenisComponent>
-            <Navbar />
             {children}
-            <Footer />
           </LenisComponent>
+          <Footer />
         </ReduxProvider>
       </body>
     </html>

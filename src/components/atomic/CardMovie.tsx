@@ -18,7 +18,7 @@ export type MovieType = {
     orientation?: "landscape" | "portrait",
     isLoading?: boolean,
     isSuccess?: string
-    media_type?: "tv" | "movie"
+    media_type?: "tv" | "movie",
 }
 
 const CardMovie = (props: MovieType) => {

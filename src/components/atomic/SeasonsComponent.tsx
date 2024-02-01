@@ -40,7 +40,7 @@ const SeasonsComponent = (props: SeasonType) => {
         if (number_of_seasons !== undefined) {
             const options = [];
             for (let i = 1; i <= number_of_seasons; i++) {
-                options.push(<option className="opt-season" value={i}>{i}</option>)
+                options.push(<option key={i} className="opt-season" value={i}>{i}</option>)
             }
             return options;
         }
@@ -55,18 +55,21 @@ const SeasonsComponent = (props: SeasonType) => {
                 </select>
             </div>
             <div className="episode-wrapper">
-                {data?.episodes.map((episode: SeasonType) => (
-                    <div className="episode" key={episode.id}>
-                        <div className={`thumb-episode ${isLoading ? "loading" : ""}`}>
-                            <img src={thumb(episode.still_path ?? "")} alt={episode.name} width="100" height="100" />
+                {isLoading ? <p>Loading</p>
+                    :
+                    data?.episodes.map((episode: SeasonType) => (
+                        <div className="episode" key={episode.id}>
+                            <div className={`thumb-episode ${isLoading ? "loading" : ""}`}>
+                                <img src={thumb(episode.still_path ?? "")} alt={episode.name} width="100" height="100" />
+                            </div>
+                            <div className="episode-info">
+                                <h3 className={`episode-title ${isLoading ? "loading" : ""}`}>{episode.name}</h3>
+                                <p className={`episode-overview ${isLoading ? "loading" : ""}`}>{episode.overview}</p>
+                                <p className={`episode-number ${isLoading ? "loading" : ""}`}>Episode {episode.episode_number}</p>
+                            </div>
                         </div>
-                        <div className="episode-info">
-                            <h3 className={`episode-title ${isLoading ? "loading" : ""}`}>{episode.name}</h3>
-                            <p className={`episode-overview ${isLoading ? "loading" : ""}`}>{episode.overview}</p>
-                            <p className={`episode-number ${isLoading ? "loading" : ""}`}>Episode {episode.episode_number}</p>
-                        </div>
-                    </div>
-                ))}
+                    ))
+                }
             </div>
         </div>
     )

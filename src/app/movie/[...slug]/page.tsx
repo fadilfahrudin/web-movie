@@ -46,7 +46,7 @@ export default async function DetailMovie({ params }: { readonly params: { slug:
                 <section className="overviewMobile"><b>Description</b>: <br /> {overview}</section>
 
                 <section className="movieVideo">
-                    <Iframe id={params.slug} media_type="movie" />
+                    <Iframe id={params.slug} media_type="movie" playerVars={{ origin: 'http://localhost:3000/movie', mute: 0, autoplay: 0 }} />
                 </section>
                 <section className="additional">
                     {belongs_to_collection ? <ListMovie listTitle="Sequel" imgOrientation="landscape" listType="featured" listPath="sequel" collectionId={belongs_to_collection?.id} movieId={params.slug} /> : ""}

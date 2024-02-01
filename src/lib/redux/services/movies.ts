@@ -25,7 +25,7 @@ export const moviesApi: any = createApi({
             query: (id) => `collection/${id}?api_key=${api_key}`
         }),
         getVideo: builder.query({
-            query: (id) => `movie/${id}/videos?api_key=${api_key}`
+            query: ({ id, media_type }) => `${media_type}/${id}/videos?api_key=${api_key}`
         }),
         getPopular: builder.query({
             query: (page) => `movie/popular?api_key=${api_key}&page=${page || 1}&language=en-US`
