@@ -43,7 +43,8 @@ const CardMovie = (props: MovieType) => {
     }
 
 
-    const handleClick = () => {
+    const handleClick = (e: any) => {
+        e.preventDefault()
         if (props.media_type == "tv") {
             route.push(`/series/${props.id}`, { scroll: true })
         } else {
@@ -54,7 +55,7 @@ const CardMovie = (props: MovieType) => {
 
 
     return (
-        <button ref={main} type="button" className={`card-movie ${props.isLoading ? "loading" : ""} ${props.orientation == "landscape" ? "landscape" : ""}`} onClick={handleClick}>
+        <button ref={main} type="button" className={`card-movie ${props.isLoading ? "loading" : ""} ${props.orientation == "landscape" ? "landscape" : ""}`} onClick={(e) => handleClick(e)}>
             <img src={props.orientation == "portrait" ? thumb(props.poster_path ?? "") : thumb(props.backdrop_path ?? "")} alt={props.media_type == "tv" ? props.name : props.title} className="card-item-movie" style={styles} width="100%" height="100%" />
             <p className="card-title">{props.media_type == "tv" ? props.name : props.title}</p>
         </button>

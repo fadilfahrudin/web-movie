@@ -12,11 +12,7 @@ export const Navbar = () => {
     const pathname = usePathname();
 
     const handleClick = (path: string) => {
-        if (path == '/') {
-            dispatch(setLoading(false))
-        } else {
-            dispatch(setLoading(true))
-        }
+        dispatch(setLoading(true))
         route.push(path)
     }
     return (

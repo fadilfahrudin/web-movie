@@ -13,7 +13,7 @@ const SearchComponent = ({ onSubmit, search }: { onSubmit: SubmitHandler, search
             gsap.to(element.current, { y: -40, duration: 1.5, ease: "back.out" })
             gsap.to('#search-label', { opacity: 0, y: -40, duration: 1.5, ease: "back.out" })
         }
-    }, { dependencies: [search], revertOnUpdate: false })
+    }, { dependencies: [search], revertOnUpdate: true })
     return (
         <form ref={element} onSubmit={(onSubmit)} className="search-form"  >
             <label htmlFor="search" id="search-label">Find something here </label>

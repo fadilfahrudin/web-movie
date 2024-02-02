@@ -26,14 +26,6 @@ export default function Search() {
     }
 
     useEffect(() => {
-        if (loadSeries) {
-            dispatch(setLoading(true))
-        } else if (isSuccess) {
-            dispatch(setLoading(false))
-        }
-    }, [isLoading, dispatch, loadSeries, isSuccess])
-
-    useEffect(() => {
         let mm = gsap.matchMedia()
         mm.add("(max-width: 767px)", () => {
             gsap.set(".search-bg-overlay", {
