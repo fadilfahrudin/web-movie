@@ -10,6 +10,7 @@ import SearchComponent from "../../components/atomic/Search"
 import { useGetBySearchQuery } from "@/lib/redux/services/movies"
 import gsap from "gsap"
 import Loading from "@/app/loading"
+import LoadPage from "@/components/atomic/LoadPage"
 
 export default function Search() {
     const { data, isLoading: loadSeries, isSuccess } = useGetSeriesByIdQuery(95479)
@@ -64,6 +65,7 @@ export default function Search() {
 
     return (
         <>
+            <LoadPage />
             {isLoading ? <Loading /> :
                 <div id="search-page" >
                     <div className="search-bg-overlay" style={overlayBg}></div>
