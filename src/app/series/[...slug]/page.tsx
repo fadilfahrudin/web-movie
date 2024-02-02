@@ -4,6 +4,7 @@ import SeasonsComponent from "@/components/atomic/SeasonsComponent";
 import { movieApi } from "@/config/api-config";
 import { Suspense } from "react";
 import Loading from "@/app/loading";
+import LoadPage from "@/components/atomic/LoadPage";
 
 async function getSeriesById(id: number) {
     await new Promise(resolve => setTimeout(resolve, 2000));
@@ -17,6 +18,7 @@ export default async function DetailSeries({ params: { slug } }: { params: { slu
     const { backdrop_path, genres, name, poster_path, overview, number_of_seasons, number_of_episodes, vote_average } = data
     return (
         <>
+            <LoadPage />
             <Suspense fallback={<Loading />}>
                 <div id="detail-series">
                     <header className="header-series">

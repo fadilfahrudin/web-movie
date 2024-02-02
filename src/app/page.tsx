@@ -13,14 +13,12 @@ export default function Home() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const handleLoad = () => {
-      dispatch(setLoading(false))
+    if (isLoading) {
+      setTimeout(() => {
+        dispatch(setLoading(false))
+      }, 2000)
     }
-    window.addEventListener('load', handleLoad)
-    return () => {
-      window.removeEventListener('load', handleLoad)
-    }
-  })
+  }, [dispatch, isLoading])
 
   return (
     <>
