@@ -27,18 +27,20 @@ export default function Search() {
 
     useEffect(() => {
         let mm = gsap.matchMedia()
-        mm.add("(max-width: 767px)", () => {
-            gsap.set(".search-bg-overlay", {
-                width: "100%",
-                height: search == "" ? "100vh" : "26vh",
-                transform: "translateY(16px)",
+        setTimeout(() => {
+            mm.add("(max-width: 767px)", () => {
+                gsap.set(".search-bg-overlay", {
+                    width: "100%",
+                    height: search == "" ? "100vh" : "26vh",
+                    transform: "translateY(16px)",
+                })
+                gsap.set(".searh-img-bg", {
+                    width: "100%",
+                    height: search == "" ? "100vh" : "26vh",
+                    transform: "translateY(16px)",
+                })
             })
-            gsap.set(".searh-img-bg", {
-                width: "100%",
-                height: search == "" ? "100vh" : "26vh",
-                transform: "translateY(16px)",
-            })
-        })
+        }, 3000)
     })
 
     // Animat style
