@@ -9,6 +9,7 @@ import { setLoading } from "@/lib/redux/slice/loadingSlice"
 import { setSeries } from "@/lib/redux/slice/seriesSlice"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import InfiniteLoad from "@/components/atomic/InfiniteLoad"
 export default function Series() {
     const dispatch = useDispatch()
     const { isLoading } = useSelector((state: any) => state.loading)
@@ -46,6 +47,7 @@ export default function Series() {
                             <CardMovie media_type="tv" name={item.name} orientation="portrait" id={item.id} index={i} key={item.id} poster_path={item.poster_path ?? ""} backdrop_path={item.backdrop_path ?? ""} />
                         ))}
                     </div>
+                    <InfiniteLoad tv={true}/>
                     <ButtonBackToTop />
                 </section>
             }

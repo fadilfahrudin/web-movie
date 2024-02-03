@@ -9,6 +9,7 @@ import { setMovies } from "@/lib/redux/slice/movieSlice"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Loading from "@/app/loading"
+import InfinteLoad from "@/components/atomic/InfiniteLoad"
 export default function Movies() {
     const { isLoading } = useSelector((state: any) => state.loading)
     const dispatch = useDispatch()
@@ -51,6 +52,7 @@ export default function Movies() {
                             <CardMovie title={item.title} orientation="portrait" id={item.id} index={i} key={item.id} poster_path={item.poster_path ?? ""} backdrop_path={item.backdrop_path ?? ""} />
                         ))}
                     </div>
+                    <InfinteLoad/>
                     <ButtonBackToTop />
                 </section>
             }

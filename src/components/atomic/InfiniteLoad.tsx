@@ -8,7 +8,7 @@ import { useGetNowPlayingQuery, useGetPopularQuery, useGetTopRatedQuery, useGetU
 import { useGetAiringTodayQuery, useGetPopularSeriesQuery, useGetTopRateSeriesQuery } from "@/lib/redux/services/series";
 import { setSeries } from "@/lib/redux/slice/seriesSlice";
 let page = 2
-const Loading = ({ tv }: { tv?: boolean }) => {
+const IniniteLoad = ({ tv }: { tv?: boolean }) => {
     const { series, seriesPath } = useSelector((state: any) => state.series)
     const { movies, moviePath } = useSelector((state: any) => state.movie)
 
@@ -69,4 +69,4 @@ const Loading = ({ tv }: { tv?: boolean }) => {
     )
 }
 
-export default Loading
+export default IniniteLoad
