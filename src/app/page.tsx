@@ -11,24 +11,23 @@ import { setLoading } from '@/lib/redux/slice/loadingSlice';
 export default function Home() {
   const { isLoading } = useSelector((state: any) => state.loading)
   const dispatch = useDispatch()
-
   useEffect(() => {
     if (isLoading) {
       setTimeout(() => {
         dispatch(setLoading(false))
       }, 2000)
     }
-  }, [dispatch, isLoading])
+  }, [isLoading])
 
   return (
     <>
       {isLoading ? <Loading /> :
         <main className={styles.main}>
           <Header />
-          <ListMovie imgOrientation='portrait' listTitle='Trending' listType='movies' listLimit={10} listPath='trending' />
+          <ListMovie imgOrientation='portrait' listTitle='Trending' listType='featured' listLimit={10} listPath='trending' />
           <ListMovie listTitle='Spider Verse' listPath='query' listType='featured' imgOrientation='portrait' keyword='spider man' />
-          <ListMovie listTitle='Avengers Collection' listPath='sequel' collectionId={86311} imgOrientation='landscape' listType='featured' />
-          <ListSeries listType='movies' imgOrientation='portrait' listTitle='Airing Today' listPath='airing_today' />
+          <ListMovie listTitle='Avengers Collection' listPath='sequel' collectionId={86311} imgOrientation='portrait' listType='featured' />
+          <ListSeries listType='featured' imgOrientation='portrait' listTitle='Airing Today' listPath='airing_today' />
         </main >
       }
     </>

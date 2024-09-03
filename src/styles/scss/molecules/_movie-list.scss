@@ -7,47 +7,12 @@
         position: relative;
         width: max-content;
         font-weight: 700;
-        font-size: 1.5rem;
+        font-size: 0.35rem;
         color: $color-light;
         line-height: 150%;
-        padding: 0 20px;
         transition: color 0.5s 0.2s ease-in-out;
-        &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 6px;
-            height: 100%;
-            border-radius: 2px;
-            background: #fff;
-            background: linear-gradient(281deg, #fff 40%, #dddddd 100%);
-        }
-        &::before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0%;
-            height: 90%;
-            border-radius: 2px;
-            transition: width 0.5s ease-in-out;
-            background: #fff;
-            background: linear-gradient(281deg, #fff 40%, #dddddd 100%);
-        }
-
-        &:hover::before {
-            width: 100%;
-        }
-
-        &:hover {
-            color: $color-dark-100;
-        }
     }
     .movie-listing {
-        margin-top: 2rem;
         display: flex;
         flex-wrap: wrap;
         gap: 18px;
@@ -81,10 +46,8 @@
         }
     }
     .featured {
-        padding: 18px 0;
         height: auto;
         width: 100%;
-        margin-top: 2rem;
         display: flex;
         flex-direction: row;
         gap: 16px;
@@ -107,47 +70,12 @@
             position: relative;
             width: max-content;
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: $color-light;
             line-height: 150%;
-            padding: 0 20px;
             transition: color 0.5s 0.2s ease-in-out;
-            &::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 6px;
-                height: 100%;
-                border-radius: 2px;
-                background: #fff;
-                background: linear-gradient(281deg, #fff 40%, #dddddd 100%);
-            }
-            &::before {
-                content: "";
-                position: absolute;
-                z-index: -1;
-                left: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 0%;
-                height: 90%;
-                border-radius: 2px;
-                transition: width 0.5s ease-in-out;
-                background: #fff;
-                background: linear-gradient(281deg, #fff 40%, #dddddd 100%);
-            }
-
-            &:hover::before {
-                width: 100%;
-            }
-
-            &:hover {
-                color: $color-dark-100;
-            }
         }
         .movie-listing {
-            margin-top: 2rem;
             display: flex;
             flex-wrap: wrap;
             gap: 18px;
@@ -181,10 +109,8 @@
             }
         }
         .featured {
-            padding: 18px 0;
             height: auto;
             width: 100%;
-            margin-top: 2rem;
             display: flex;
             flex-direction: row;
             gap: 16px;

@@ -12,8 +12,7 @@ body {
 
 body {
   color: #dddddd;
-  background: rgb(34, 40, 49);
-  background: linear-gradient(261deg, rgb(34, 40, 49) 40%, rgb(44, 57, 75) 79%);
+  background-color: #191919;
 }
 
 a {
@@ -1387,11 +1386,11 @@ header .landscape-poster::after {
   content: "";
   position: absolute;
   width: 100%;
-  height: 70vh;
+  height: 100vh;
   left: 0;
-  top: 26px;
-  background: rgb(34, 40, 49);
-  background: linear-gradient(122deg, rgba(34, 40, 49, 0.911) 36%, rgba(44, 57, 75, 0.171) 65%);
+  top: 0px;
+  background: rgb(25, 25, 25);
+  background: linear-gradient(90deg, rgb(25, 25, 25) 0%, rgba(0, 212, 255, 0) 90%);
 }
 header .landscape-poster::before {
   content: "";
@@ -1401,8 +1400,8 @@ header .landscape-poster::before {
   height: 100%;
   left: 0;
   bottom: -15%;
-  background: rgb(34, 40, 49);
-  background: linear-gradient(0deg, rgba(34, 40, 49, 0.9780287115) 30%, rgba(44, 57, 75, 0) 100%);
+  background: rgb(25, 25, 25);
+  background: linear-gradient(0deg, rgb(25, 25, 25) 0%, rgba(0, 212, 255, 0) 100%);
 }
 header .detail-movie {
   position: relative;
@@ -1547,27 +1546,6 @@ header .top-movies .movie-list .top-movie-card img {
     height: 144vh;
     pointer-events: none;
   }
-  header .landscape-poster::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background: rgb(34, 40, 49);
-    background: linear-gradient(122deg, rgba(34, 40, 49, 0.911) 36%, rgba(44, 57, 75, 0.171) 65%);
-  }
-  header .landscape-poster::before {
-    content: "";
-    position: absolute;
-    z-index: 99;
-    width: 100%;
-    height: 10%;
-    left: 0;
-    bottom: 0;
-    background: rgb(34, 40, 49);
-    background: linear-gradient(0deg, rgba(34, 40, 49, 0.9780287115) 30%, rgba(44, 57, 75, 0) 100%);
-  }
   header .detail-movie {
     position: relative;
     top: 30%;
@@ -1696,45 +1674,12 @@ header .top-movies .movie-list .top-movie-card img {
   width: -moz-max-content;
   width: max-content;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 0.35rem;
   color: #dddddd;
   line-height: 150%;
-  padding: 0 20px;
   transition: color 0.5s 0.2s ease-in-out;
 }
-.listMovie .listTitle::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 6px;
-  height: 100%;
-  border-radius: 2px;
-  background: #fff;
-  background: linear-gradient(281deg, #fff 40%, #dddddd 100%);
-}
-.listMovie .listTitle::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0%;
-  height: 90%;
-  border-radius: 2px;
-  transition: width 0.5s ease-in-out;
-  background: #fff;
-  background: linear-gradient(281deg, #fff 40%, #dddddd 100%);
-}
-.listMovie .listTitle:hover::before {
-  width: 100%;
-}
-.listMovie .listTitle:hover {
-  color: #222831;
-}
 .listMovie .movie-listing {
-  margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
@@ -1767,10 +1712,8 @@ header .top-movies .movie-list .top-movie-card img {
   display: none;
 }
 .listMovie .featured {
-  padding: 18px 0;
   height: auto;
   width: 100%;
-  margin-top: 2rem;
   display: flex;
   flex-direction: row;
   gap: 16px;
@@ -1789,45 +1732,12 @@ header .top-movies .movie-list .top-movie-card img {
     width: -moz-max-content;
     width: max-content;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #dddddd;
     line-height: 150%;
-    padding: 0 20px;
     transition: color 0.5s 0.2s ease-in-out;
   }
-  .listMovie .listTitle::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 6px;
-    height: 100%;
-    border-radius: 2px;
-    background: #fff;
-    background: linear-gradient(281deg, #fff 40%, #dddddd 100%);
-  }
-  .listMovie .listTitle::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0%;
-    height: 90%;
-    border-radius: 2px;
-    transition: width 0.5s ease-in-out;
-    background: #fff;
-    background: linear-gradient(281deg, #fff 40%, #dddddd 100%);
-  }
-  .listMovie .listTitle:hover::before {
-    width: 100%;
-  }
-  .listMovie .listTitle:hover {
-    color: #222831;
-  }
   .listMovie .movie-listing {
-    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     gap: 18px;
@@ -1860,10 +1770,8 @@ header .top-movies .movie-list .top-movie-card img {
     display: none;
   }
   .listMovie .featured {
-    padding: 18px 0;
     height: auto;
     width: 100%;
-    margin-top: 2rem;
     display: flex;
     flex-direction: row;
     gap: 16px;
@@ -2060,37 +1968,12 @@ header .top-movies .movie-list .top-movie-card img {
   }
 }
 .card-movie img {
+  width: 100%;
+  height: auto;
   -o-object-fit: contain;
      object-fit: contain;
   -o-object-position: center center;
      object-position: center center;
-}
-.card-movie .card-title {
-  position: absolute;
-  z-index: 88;
-  bottom: 6%;
-  left: 0;
-  width: 100%;
-  height: auto;
-  padding: 0 6px;
-  color: #dddddd;
-  font-weight: 700;
-  font-size: 0.72rem;
-  text-align: center;
-  line-height: 150%;
-}
-.card-movie:hover {
-  transform: translateY(-10px);
-}
-.card-movie::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  bottom: 0;
-  background: rgb(34, 40, 49);
-  background: linear-gradient(0deg, rgba(34, 40, 49, 0.9780287115) 5%, rgba(44, 57, 75, 0.1068802521) 42%);
 }
 
 @media (min-width: 768px) and (max-width: 1275px) {
@@ -2103,12 +1986,9 @@ header .top-movies .movie-list .top-movie-card img {
 }
 @media (min-width: 1276px) {
   .card-movie {
-    width: calc(20% - 18px);
-    height: auto;
-    border-radius: 16px;
-  }
-  .card-movie .card-title {
-    font-size: 1.2rem;
+    width: 14.2857142857%;
+    height: 250px;
+    border-radius: 8px;
   }
   .card-movie.landscape {
     width: calc(33.3333333333% - 18px);

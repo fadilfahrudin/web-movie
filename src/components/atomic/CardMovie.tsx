@@ -56,8 +56,7 @@ const CardMovie = (props: MovieType) => {
 
     return (
         <button ref={main} type="button" className={`card-movie ${props.isLoading ? "loading" : ""} ${props.orientation == "landscape" ? "landscape" : ""}`} onClick={(e) => handleClick(e)}>
-            <img src={props.orientation == "portrait" ? thumb(props.poster_path ?? "") : thumb(props.backdrop_path ?? "")} alt={props.media_type == "tv" ? props.name : props.title} className="card-item-movie" style={styles} width="100%" height="100%" />
-            <p className="card-title">{props.media_type == "tv" ? props.name : props.title}</p>
+            <img src={props.orientation == "portrait" ? thumb(props.poster_path ?? "") : thumb(props.backdrop_path ?? "")} alt={props.media_type == "tv" ? props.name : props.title} className="card-item-movie" style={styles} width="1000" height="1000" />
         </button>
     )
 }
