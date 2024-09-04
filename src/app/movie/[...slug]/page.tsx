@@ -37,12 +37,9 @@ export default async function DetailMovie({ params }: { readonly params: { slug:
                             <div className="release-gendres">{release_date.split('-')[0]} | {genres.map((item: any) => item.name).join(', ')} | {runtime} minutes</div>
                             <div className="overview">{overview}</div>
                         </div>
-                        <div className="original-poster">
-                            <img src={originalImg(poster_path)} alt={title} width="100%" height="100%" />
-                        </div>
                         <Credit id={params.slug} />
                     </header>
-                    <Credit id={params.slug} />
+                    {/* <Credit id={params.slug} />
                     <section className="overviewMobile"><b>Description</b>: <br /> {overview}</section>
 
                     <section className="movieVideo">
@@ -52,7 +49,7 @@ export default async function DetailMovie({ params }: { readonly params: { slug:
                         {belongs_to_collection ? <ListMovie listTitle="Sequel" imgOrientation="landscape" listType="featured" listPath="sequel" collectionId={belongs_to_collection?.id} movieId={params.slug} /> : ""}
                         <ListMovie listTitle="Playing Now" imgOrientation="portrait" listType="featured" listPath="playingNow" collectionId={belongs_to_collection?.id} movieId={params.slug} />
                     </section>
-                    <ModalComponent id={params.slug} media_type="movie" />
+                    <ModalComponent id={params.slug} media_type="movie" /> */}
                 </main>
             </Suspense >
         </>

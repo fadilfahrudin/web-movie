@@ -110,27 +110,28 @@ a {
   position: relative;
   width: 100%;
   height: 50vh;
+  z-index: 1;
 }
 #detail-page header .backdrop::after {
   content: "";
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   left: 0;
-  top: 0;
-  background: rgb(34, 40, 49);
-  background: linear-gradient(122deg, rgba(34, 40, 49, 0.911) 36%, rgba(44, 57, 75, 0.171) 65%);
+  top: 0px;
+  background: rgb(25, 25, 25);
+  background: linear-gradient(90deg, rgb(25, 25, 25) 0%, rgba(0, 212, 255, 0) 90%);
 }
 #detail-page header .backdrop::before {
   content: "";
   position: absolute;
   z-index: 99;
   width: 100%;
-  height: 10%;
+  height: 100%;
   left: 0;
-  bottom: 0;
-  background: rgb(34, 40, 49);
-  background: linear-gradient(0deg, rgba(34, 40, 49, 0.9780287115) 30%, rgba(44, 57, 75, 0) 100%);
+  bottom: -15%;
+  background: rgb(25, 25, 25);
+  background: linear-gradient(0deg, rgb(25, 25, 25) 0%, rgba(0, 212, 255, 0) 100%);
 }
 #detail-page header .backdrop img {
   -o-object-fit: cover;
@@ -307,59 +308,32 @@ a {
 
 @media (min-width: 1276px) {
   #detail-page {
-    position: relative;
-    top: -7rem;
-    min-height: 270vh;
+    top: -5rem;
   }
   #detail-page header {
-    position: unset;
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    min-height: 120vh;
-    overflow-x: hidden;
-    overflow-y: unset;
+    min-height: 100vh;
   }
   #detail-page header .backdrop {
     position: absolute;
-    width: 100%;
-    min-height: 120vh;
-    overflow: hidden;
+    height: 100%;
   }
   #detail-page header .backdrop img {
     position: absolute;
-    width: 100vw;
-    height: auto;
-    pointer-events: none;
-  }
-  #detail-page header .backdrop::after {
-    content: "";
-    position: absolute;
     width: 100%;
     height: 100%;
-    left: 0;
-    top: 0;
-    background: rgb(34, 40, 49);
-    background: linear-gradient(122deg, rgba(34, 40, 49, 0.911) 36%, rgba(44, 57, 75, 0.171) 65%);
-  }
-  #detail-page header .backdrop::before {
-    content: "";
-    position: absolute;
-    z-index: 99;
-    width: 100%;
-    height: 10%;
-    left: 0;
-    bottom: 0;
-    background: rgb(34, 40, 49);
-    background: linear-gradient(0deg, rgba(34, 40, 49, 0.9780287115) 30%, rgba(44, 57, 75, 0) 100%);
+    pointer-events: none;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
   }
   #detail-page header .detail-movie {
     position: absolute;
-    bottom: unset;
-    top: 14%;
+    width: 57%;
+    bottom: 12%;
   }
   #detail-page header .detail-movie .title {
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 700;
   }
   #detail-page header .detail-movie .release-gendres {
@@ -370,46 +344,29 @@ a {
     font-size: 1rem;
     line-height: 150%;
   }
-  #detail-page header .original-poster {
-    display: block;
-    position: absolute;
-    z-index: 99;
-    right: 4rem;
-    top: 28%;
-    width: 300px;
-    height: 400px;
-    box-shadow: 0px 0px 14px 0px rgb(0, 0, 0);
-  }
-  #detail-page header .original-poster img {
-    aspect-ratio: 16/9;
-    width: 100%;
-    height: 100%;
-  }
   #detail-page header .cast {
+    background-color: red;
     padding: 0.75rem;
     position: absolute;
     z-index: 99;
     right: 4rem;
     top: calc(30% + 400px);
-    width: 300px;
+    width: 43%;
     height: 800px;
-    box-shadow: 0px 0px 14px 0px rgb(0, 0, 0);
     display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 10px 0;
   }
   #detail-page header .cast .cast-info {
     position: relative;
-    width: 80%;
-    height: calc(20% - 10px);
+    width: calc(20% - 10px);
+    height: auto;
     flex-basis: unset;
   }
   #detail-page header .cast .cast-info img {
     margin: 0 auto;
     display: block;
     width: auto;
-    height: 80%;
+    height: 100px;
     aspect-ratio: 1/1;
     background-color: #fff;
     border-radius: 50%;
@@ -660,7 +617,7 @@ a {
 }
 #detail-series .more-series .seasons-wrapper .select-wrapper .seasons-select {
   background-color: #222831;
-  border: 1px solid #2c394b;
+  border: 1px solid #191919;
   padding: 4px;
   outline: 1px solid #dddddd;
 }
@@ -694,7 +651,7 @@ a {
   aspect-ratio: 1/1;
   -o-object-fit: cover;
      object-fit: cover;
-  border: 1px solid #334756;
+  border: 1px solid #1E201E;
 }
 #detail-series .more-series .seasons-wrapper .episode-wrapper .episode .episode-info {
   width: 100%;
@@ -870,7 +827,7 @@ a {
   }
   #detail-series .more-series .seasons-wrapper .select-wrapper .seasons-select {
     background-color: #222831;
-    border: 1px solid #2c394b;
+    border: 1px solid #191919;
     padding: 4px;
     outline: 1px solid #dddddd;
   }
@@ -904,7 +861,7 @@ a {
     aspect-ratio: 1/1;
     -o-object-fit: cover;
        object-fit: cover;
-    border: 1px solid #334756;
+    border: 1px solid #1E201E;
   }
   #detail-series .more-series .seasons-wrapper .episode-wrapper .episode .episode-info {
     width: 100%;
@@ -975,21 +932,21 @@ a {
   border: none;
   position: relative;
   transition: 0.2s ease-in-out;
-  color: #334756;
-  background: #334756;
+  color: #1E201E;
+  background: #1E201E;
   -webkit-background-clip: text;
   background-clip: text;
 }
 .mobile-navigation ul li a.active {
   font-weight: 700;
-  background: #334756;
+  background: #1E201E;
   color: #222831;
   -webkit-background-clip: text;
   background-clip: text;
 }
 .mobile-navigation ul li a:hover {
   font-weight: 700;
-  background: #334756;
+  background: #1E201E;
   color: #fff;
   -webkit-background-clip: text;
   background-clip: text;
@@ -1085,14 +1042,14 @@ a {
     border: none;
     font-size: 14px;
     position: relative;
-    color: #334756;
-    background: #334756;
+    color: #1E201E;
+    background: #1E201E;
     -webkit-background-clip: text;
     background-clip: text;
   }
   .desktop-navigation ul li a.active {
     font-weight: 700;
-    background: #334756;
+    background: #1E201E;
     color: #222831;
     -webkit-background-clip: text;
     background-clip: text;
@@ -1129,7 +1086,7 @@ footer {
   width: 100%;
   height: 442px;
   text-align: center;
-  background-color: #2c394b;
+  background-color: #191919;
   overflow: hidden;
 }
 footer .list-img-footer {
@@ -1148,7 +1105,7 @@ footer .list-img-footer li {
   flex-basis: 10%;
   width: 10%;
   height: 345px;
-  background-color: #334756;
+  background-color: #1E201E;
 }
 footer .list-img-footer li img {
   -o-object-fit: cover;
@@ -1251,7 +1208,7 @@ footer .copyright {
     width: 100%;
     height: 240px;
     text-align: center;
-    background-color: #2c394b;
+    background-color: #191919;
   }
   footer .list-img-footer {
     position: absolute;
@@ -1269,7 +1226,7 @@ footer .copyright {
     flex-basis: 10%;
     width: 10%;
     height: 200px;
-    background-color: #334756;
+    background-color: #1E201E;
   }
   footer .list-img-footer li img {
     -o-object-fit: cover;
@@ -1438,7 +1395,7 @@ header .detail-movie .btn-watch {
   border: none;
   border-radius: 4px;
   overflow: hidden;
-  color: #334756;
+  color: #1E201E;
   -webkit-background-clip: text;
   background-clip: text;
   transition: all 0.5s ease-in-out;
@@ -1583,7 +1540,7 @@ header .top-movies .movie-list .top-movie-card img {
     border: none;
     border-radius: 4px;
     overflow: hidden;
-    color: #334756;
+    color: #1E201E;
     -webkit-background-clip: text;
     background-clip: text;
     transition: all 0.5s ease-in-out;
@@ -1864,7 +1821,7 @@ header .top-movies .movie-list .top-movie-card img {
   font-weight: 700;
   position: relative;
   overflow: hidden;
-  color: #334756;
+  color: #1E201E;
   -webkit-background-clip: text;
   background-clip: text;
   transition: all 0.5s ease-in-out;
@@ -1949,7 +1906,7 @@ header .top-movies .movie-list .top-movie-card img {
   height: -moz-max-content;
   height: max-content;
   overflow: hidden;
-  background-image: linear-gradient(90deg, #2c394b, #334756, #2c394b);
+  background-image: linear-gradient(90deg, #191919, #1E201E, #191919);
   background-size: 200%;
   animation: shimmer 2s infinite;
   transform: translateY(0);
@@ -1969,9 +1926,9 @@ header .top-movies .movie-list .top-movie-card img {
 }
 .card-movie img {
   width: 100%;
-  height: auto;
-  -o-object-fit: contain;
-     object-fit: contain;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   -o-object-position: center center;
      object-position: center center;
 }
@@ -1987,7 +1944,7 @@ header .top-movies .movie-list .top-movie-card img {
 @media (min-width: 1276px) {
   .card-movie {
     width: 14.2857142857%;
-    height: 250px;
+    height: auto;
     border-radius: 8px;
   }
   .card-movie.landscape {
@@ -2005,7 +1962,7 @@ header .top-movies .movie-list .top-movie-card img {
   width: 100%;
   height: 100%;
   z-index: 99;
-  background-image: linear-gradient(90deg, #2c394b, #334756, #2c394b);
+  background-image: linear-gradient(90deg, #191919, #1E201E, #191919);
   background-size: 200%;
   animation: shimmer 2s infinite;
 }
@@ -2075,7 +2032,7 @@ header .top-movies .movie-list .top-movie-card img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #334756;
+  background-color: #1E201E;
 }
 .loadPage .loader {
   display: flex;

@@ -9,7 +9,7 @@ import ReduxProvider from '@/components/ReduxProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'F Moview',
+  title: 'FMovie',
   description: 'Web-Movie',
 }
 

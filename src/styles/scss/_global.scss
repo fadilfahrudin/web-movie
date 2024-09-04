@@ -5,8 +5,8 @@
 }
 
 $color-dark-100: #222831;
-$color-dark-50: #2c394b;
-$color-dark-25: #334756;
+$color-dark-50: #191919;
+$color-dark-25: #1E201E;
 $color-light: #dddddd;
 $color-light-50: #929090;
 $color-red: #af0a0a;
@@ -19,8 +19,6 @@ body {
 body {
     color: $color-light;
     background-color: #191919;
-    // background: rgb(34, 40, 49);
-    // background: linear-gradient(261deg, rgba(34, 40, 49, 1) 40%, rgba(44, 57, 75, 1) 79%);
 }
 
 a {

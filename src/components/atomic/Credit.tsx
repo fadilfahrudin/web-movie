@@ -43,13 +43,13 @@ const Credit = (props: MovieType) => {
 
 
     return (
-        <>
+        <div className="credit">
             <div className="cast-header">
                 <h5>Cast and Crew:</h5>
-                <div className="swipe">
+                {/* <div className="swipe">
                     <button onClick={() => swipe("left")}> <img src={IcArrowLeft.src} alt="arrow left" width={8} height={14} /></button>
                     <button onClick={() => swipe("right")}> <img src={IcArrowRight.src} alt="arrow right" width={8} height={14} /></button>
-                </div>
+                </div> */}
             </div>
             <div className="cast" ref={ref}>
                 {isSuccess && data.cast.slice(0, 4).map((cast: CastType) => (
@@ -58,23 +58,8 @@ const Credit = (props: MovieType) => {
                         <div className="cast-name">{cast.name}</div>
                     </div>
                 ))}
-
-                <div className="director-writer">
-                    <div className="director">
-                        <div className="director-title">Director</div>
-                        <div className="director-name">{director.name}</div>
-                    </div>
-                    <div className="writer">
-                        <div className="writer-title">Writer</div>
-                        <ul className="writer-list">
-                            {isSuccess && filGender.map((item: any) => (
-                                <li key={item.id}>{item.name}</li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
             </div>
-        </>
+        </div>
 
     )
 }
