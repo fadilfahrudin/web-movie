@@ -25,20 +25,17 @@ export default async function DetailMovie({ params }: { readonly params: { slug:
             <LoadPage />
             <Suspense fallback={<Loading />}>
                 <main id="detail-page">
-                    <header>
+                    <div className="detail-page__header">
                         <div className="backdrop">
                             <img src={originalImg(backdrop_path)} alt={title} width="100%" height="100%" />
                         </div>
-                        <Button>
-                            <img src={IcPlay.src} alt="Play" width={50} height={50} />
-                        </Button>
-                        <div className="detail-movie">
+                        <div className="detail-page__detail-movie">
                             <div className="title">{title}</div>
                             <div className="release-gendres">{release_date.split('-')[0]} | {genres.map((item: any) => item.name).join(', ')} | {runtime} minutes</div>
                             <div className="overview">{overview}</div>
                         </div>
                         <Credit id={params.slug} />
-                    </header>
+                    </div>
                     {/* <Credit id={params.slug} />
                     <section className="overviewMobile"><b>Description</b>: <br /> {overview}</section>
 

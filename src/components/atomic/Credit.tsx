@@ -45,7 +45,7 @@ const Credit = (props: MovieType) => {
     return (
         <div className="credit">
             <div className="cast-header">
-                <h5>Cast and Crew:</h5>
+                <h5>Actors</h5>
                 {/* <div className="swipe">
                     <button onClick={() => swipe("left")}> <img src={IcArrowLeft.src} alt="arrow left" width={8} height={14} /></button>
                     <button onClick={() => swipe("right")}> <img src={IcArrowRight.src} alt="arrow right" width={8} height={14} /></button>

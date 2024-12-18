@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   box-sizing: border-box;
   padding: 0;
@@ -101,18 +100,21 @@ a {
   min-height: 100vh;
   overflow: hidden;
 }
-#detail-page header {
+#detail-page .detail-page__header {
   position: relative;
   width: 100%;
-  height: 50vh;
+  height: 100vh;
+  background-color: red;
+  display: flex;
 }
-#detail-page header .backdrop {
+#detail-page .detail-page__header .backdrop {
+  display: none;
   position: relative;
   width: 100%;
   height: 50vh;
   z-index: 1;
 }
-#detail-page header .backdrop::after {
+#detail-page .detail-page__header .backdrop::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -122,7 +124,7 @@ a {
   background: rgb(25, 25, 25);
   background: linear-gradient(90deg, rgb(25, 25, 25) 0%, rgba(0, 212, 255, 0) 90%);
 }
-#detail-page header .backdrop::before {
+#detail-page .detail-page__header .backdrop::before {
   content: "";
   position: absolute;
   z-index: 99;
@@ -133,353 +135,38 @@ a {
   background: rgb(25, 25, 25);
   background: linear-gradient(0deg, rgb(25, 25, 25) 0%, rgba(0, 212, 255, 0) 100%);
 }
-#detail-page header .backdrop img {
+#detail-page .detail-page__header .backdrop img {
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
 }
-#detail-page header .btn-play {
-  width: 68px;
-  height: 80px;
-  position: absolute;
-  background-color: transparent;
-  border: none;
-  right: -25px;
-  top: 45%;
-  background-image: url(../../assets/icon/blob-haikei.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  transform: rotate(142deg) scale(1.5);
-  filter: drop-shadow(2px 4px 6px rgb(68, 68, 68));
-}
-#detail-page header .btn-play img {
-  transform: rotate(102deg) scale(0.6) translateX(12px) translateY(-19px);
-}
-#detail-page header .detail-movie {
-  position: absolute;
-  z-index: 2;
-  top: unset;
-  bottom: 42px;
-  width: 80%;
-}
-#detail-page header .detail-movie .title {
-  font-size: 2rem;
-  font-weight: 700;
-}
-#detail-page header .detail-movie .release-gendres {
-  font-size: 1rem;
-}
-#detail-page header .detail-movie .overview {
-  display: none;
-}
-#detail-page header .original-poster {
-  display: none;
-}
-#detail-page header .cast-header {
-  display: none;
-}
-#detail-page header .cast {
-  display: none;
-}
-#detail-page .cast-header {
-  padding: 0.75rem;
-  display: flex;
-  justify-content: space-between;
-}
-#detail-page .cast-header .swipe button {
-  background-color: transparent;
-  border: none;
-  margin: 0 5px;
-}
-#detail-page .cast {
-  padding: 1.75rem;
-  margin: 0 auto;
-  margin-bottom: 2rem;
-  width: 92%;
-  height: 150px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  overflow: hidden;
-  background-color: rgba(51, 49, 49, 0);
-  box-shadow: 0 0 14px 0px rgba(19, 18, 18, 0.192);
-}
-#detail-page .cast .cast-info {
+#detail-page .detail-page__header .detail-page__detail-movie {
   flex-shrink: 0;
-  flex-grow: 0;
-  flex-basis: calc(33.3333333333% - 10px);
-  width: calc(33.3333333333% - 10px);
-  height: 100%;
+  width: 60%;
+  min-height: 300px;
+  background-color: lightcoral;
 }
-#detail-page .cast .cast-info img {
-  margin: 0 auto;
-  display: block;
-  width: auto;
-  height: 80%;
-  aspect-ratio: 1/1;
-  background-color: #fff;
-  border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center center;
-     object-position: center center;
-}
-#detail-page .cast .cast-info .cast-name {
-  margin-top: 10px;
-  text-align: center;
-  line-height: 150%;
-  font-size: 12px;
-}
-#detail-page .cast .director-writer {
-  display: none;
-  position: relative;
-  margin-top: 10px;
-  padding-top: 10px;
-}
-#detail-page .cast .director-writer::after {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 68%;
-  border-top: 2px solid #d3d3d3;
-}
-#detail-page .cast .director-writer .director {
-  font-size: 1rem;
-  line-height: 150%;
-  color: #d3d3d3;
-}
-#detail-page .cast .director-writer .director .director-title {
+#detail-page .detail-page__header .detail-page__detail-movie .title {
+  font-size: 5rem;
   font-weight: 700;
 }
-#detail-page .cast .director-writer .director .director-title,
-#detail-page .cast .director-writer .director .director-name {
-  text-align: center;
+#detail-page .detail-page__header .detail-page__detail-movie .release-gendres {
+  font-size: 1rem;
 }
-#detail-page .cast .director-writer .writer {
-  margin-top: 10px;
+#detail-page .detail-page__header .detail-page__detail-movie .overview {
+  display: block;
   font-size: 1rem;
   line-height: 150%;
-  color: #d3d3d3;
 }
-#detail-page .cast .director-writer .writer .writer-title {
-  font-weight: 700;
-  text-align: center;
-}
-#detail-page .cast .director-writer .writer .writer-list {
-  width: 100%;
-  height: auto;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-#detail-page .cast .director-writer .writer .writer-list li {
-  display: inline;
-}
-#detail-page .cast .director-writer .writer .writer-list li::before {
-  content: ", ";
-}
-#detail-page .cast .director-writer .writer .writer-list li:only-child::before {
-  content: "";
-}
-#detail-page .cast .director-writer .writer .writer-list li:not(:only-child):first-child::before {
-  content: "";
-}
-#detail-page .cast .director-writer .writer .writer-list li:not(:only-child):last-child::before {
-  content: " & ";
-}
-#detail-page .overviewMobile {
-  display: block;
-  font-size: 0.75rem;
-  line-height: 150%;
-  padding: 0 1.75rem;
-  margin-bottom: 2rem;
-}
-#detail-page .movieVideo {
-  display: none;
-}
-#detail-page .additional {
-  padding: 0 1.75rem;
+#detail-page .detail-page__header .credit {
+  width: 40%;
+  height: 300px;
+  overflow: hidden;
+  background-color: lightgreen;
+  flex-shrink: 0;
 }
 
-@media (min-width: 1276px) {
-  #detail-page {
-    top: -5rem;
-  }
-  #detail-page header {
-    min-height: 100vh;
-  }
-  #detail-page header .backdrop {
-    position: absolute;
-    height: 100%;
-  }
-  #detail-page header .backdrop img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: center;
-       object-position: center;
-  }
-  #detail-page header .detail-movie {
-    position: absolute;
-    width: 57%;
-    bottom: 12%;
-  }
-  #detail-page header .detail-movie .title {
-    font-size: 5rem;
-    font-weight: 700;
-  }
-  #detail-page header .detail-movie .release-gendres {
-    font-size: 1.75rem;
-  }
-  #detail-page header .detail-movie .overview {
-    display: block;
-    font-size: 1rem;
-    line-height: 150%;
-  }
-  #detail-page header .cast {
-    background-color: red;
-    padding: 0.75rem;
-    position: absolute;
-    z-index: 99;
-    right: 4rem;
-    top: calc(30% + 400px);
-    width: 43%;
-    height: 800px;
-    display: flex;
-    gap: 10px 0;
-  }
-  #detail-page header .cast .cast-info {
-    position: relative;
-    width: calc(20% - 10px);
-    height: auto;
-    flex-basis: unset;
-  }
-  #detail-page header .cast .cast-info img {
-    margin: 0 auto;
-    display: block;
-    width: auto;
-    height: 100px;
-    aspect-ratio: 1/1;
-    background-color: #fff;
-    border-radius: 50%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: center center;
-       object-position: center center;
-  }
-  #detail-page header .cast .cast-info .cast-name {
-    margin-top: 10px;
-    text-align: center;
-    line-height: 150%;
-  }
-  #detail-page header .cast .director-writer {
-    display: block;
-    position: relative;
-    margin-top: 10px;
-    padding-top: 10px;
-  }
-  #detail-page header .cast .director-writer::after {
-    content: "";
-    position: absolute;
-    top: 0px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 68%;
-    border-top: 2px solid #d3d3d3;
-  }
-  #detail-page header .cast .director-writer .director {
-    font-size: 1rem;
-    line-height: 150%;
-    color: #d3d3d3;
-  }
-  #detail-page header .cast .director-writer .director .director-title {
-    font-weight: 700;
-  }
-  #detail-page header .cast .director-writer .director .director-title,
-  #detail-page header .cast .director-writer .director .director-name {
-    text-align: center;
-  }
-  #detail-page header .cast .director-writer .writer {
-    margin-top: 10px;
-    font-size: 1rem;
-    line-height: 150%;
-    color: #d3d3d3;
-  }
-  #detail-page header .cast .director-writer .writer .writer-title {
-    font-weight: 700;
-    text-align: center;
-  }
-  #detail-page header .cast .director-writer .writer .writer-list {
-    width: 100%;
-    height: auto;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  #detail-page header .cast .director-writer .writer .writer-list li {
-    display: inline;
-  }
-  #detail-page header .cast .director-writer .writer .writer-list li::before {
-    content: ", ";
-  }
-  #detail-page header .cast .director-writer .writer .writer-list li:only-child::before {
-    content: "";
-  }
-  #detail-page header .cast .director-writer .writer .writer-list li:not(:only-child):first-child::before {
-    content: "";
-  }
-  #detail-page header .cast .director-writer .writer .writer-list li:not(:only-child):last-child::before {
-    content: " & ";
-  }
-  #detail-page header .btn-play {
-    display: none;
-  }
-  #detail-page .cast-header {
-    display: none;
-  }
-  #detail-page .cast {
-    display: none;
-  }
-  #detail-page .overviewMobile {
-    display: none;
-  }
-  #detail-page .movieVideo {
-    display: block;
-    height: 80vh;
-    width: 80%;
-    padding-top: 2rem;
-    padding-left: 4rem;
-  }
-  #detail-page .movieVideo iframe {
-    width: auto;
-    height: 80vh;
-    aspect-ratio: 16/9;
-    box-shadow: 0px 0px 16px 0px rgb(221, 221, 221);
-  }
-  #detail-page .relate-movie {
-    margin-top: 6rem;
-  }
-  #detail-page .relate-movie .listMovie {
-    width: 75%;
-  }
-  #detail-page .additional {
-    width: 70%;
-    padding-left: 3rem;
-    margin-top: 6rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-}
 #detail-series {
   position: relative;
   top: -5rem;
